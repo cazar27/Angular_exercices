@@ -11,11 +11,12 @@
     <ul>
       <li *ngFor="let pokemon of pokemons">{{ pokemon.name | titlecase }} - N.º {{ pokemon.number | number }} </li>
     </ul> -->
-    <app-pokemon-list [pokemons]="pokemons"></app-pokemon-list>
+    <app-pokemon-list [data]="pokemons"></app-pokemon-list>
   </div>
 
   <div class="col">
-    <h3>Agregar Pokemon <small>{{pokemonNew.name}}</small></h3>
+    <app-add-pokemon [pokemonNew]="pokemonNew" [pokemons]="pokemons" ></app-add-pokemon>
+    <!-- <h3>Agregar Pokemon <small>{{pokemonNew.name}}</small></h3>
     <hr>
     <form (ngSubmit)="agregar()">
       <input
@@ -31,6 +32,6 @@
         [(ngModel)]="pokemonNew.number"
       >
       <button type="submit">Agregar</button>
-    </form>
+    </form> -->
   </div>
 </div>

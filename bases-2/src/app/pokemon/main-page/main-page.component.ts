@@ -25,22 +25,6 @@ export class MainPageComponent implements OnInit {
     this.pokemons.push({name: "Caterpie", number: 10});
   }
 
-  agregar() {
-    if(this.pokemonNew.name.trim().length === 0 ) {
-      return;
-    }
-    this.pokemons.push(this.pokemonNew);
-    console.log(this.pokemonNew);
-    this.pokemonNew = {
-      name: '',
-      number: 0
-    }
-  }
-
-  changeName( evt: any ):void {
-    evt.target.value;
-  }
-
   ngOnInit(): void {
   }
 
