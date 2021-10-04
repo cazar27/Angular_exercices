@@ -11,7 +11,7 @@
     <ul>
       <li *ngFor="let pokemon of pokemons">{{ pokemon.name | titlecase }} - N.º {{ pokemon.number | number }} </li>
     </ul> -->
-    <app-pokemon-list></app-pokemon-list>
+    <app-pokemon-list [pokemons]="pokemons"></app-pokemon-list>
   </div>
 
   <div class="col">

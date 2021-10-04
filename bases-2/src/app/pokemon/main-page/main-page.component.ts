@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-interface Pokemon {
-  name: string,
-  number: number
-}
+import { Pokemon } from '../pokemon';
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
