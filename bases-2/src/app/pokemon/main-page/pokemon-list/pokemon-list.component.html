@@ -1,0 +1,5 @@
+<h3>Pokemons</h3>
+<hr>
+<ul>
+  <li *ngFor="let pokemon of pokemons">{{ pokemon.name | titlecase }} - N.º {{ pokemon.number | number }} </li>
+</ul>
