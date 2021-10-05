@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EventEmitter } from 'stream';
 import { Pokemon } from '../pokemon';
 @Component({
   selector: 'app-main-page',
@@ -24,6 +25,10 @@ export class MainPageComponent implements OnInit {
     this.pokemons.push({name: "Squirtle", number: 7});
     this.pokemons.push({name: "Caterpie", number: 10});
   }
+
+  addNewPokemon( pokemon: Pokemon ) {
+    this.pokemons.push(pokemon);
+  };
 
   ngOnInit(): void {
   }
