@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { EventEmitter } from 'stream';
 import { Pokemon } from '../pokemon';
 @Component({
   selector: 'app-main-page',
