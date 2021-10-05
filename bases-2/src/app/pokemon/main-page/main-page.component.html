@@ -6,12 +6,11 @@
 </div>
 <div class="row">
   <div class="col">
-    <app-pokemon-list [data]="pokemons"></app-pokemon-list>
+    <app-pokemon-list></app-pokemon-list>
   </div>
   <div class="col">
     <app-add-pokemon
       [pokemonNew]="pokemonNew"
-      (onPokemonNew)="addNewPokemon( $event )"
     ></app-add-pokemon>
   </div>
 </div>

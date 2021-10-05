@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Pokemon } from '../../pokemon';
+import { PokemonService } from '../../services/pokemon.service';
 
 @Component({
   selector: 'app-add-pokemon',
@@ -8,17 +9,17 @@ import { Pokemon } from '../../pokemon';
 })
 export class AddPokemonComponent implements OnInit {
 
-  @Output() onPokemonNew: EventEmitter<Pokemon> = new EventEmitter();
-  @Input() pokemonNew: Pokemon = {name:"", number: 0};
+  // @Output() onPokemonNew: EventEmitter<Pokemon> = new EventEmitter();
+  @Input() pokemonNew: Pokemon = {
+    name: '',
+    number: 0
+  };
 
-  constructor() { }
+  constructor( private pokemonService: PokemonService ) { }
 
-  agregar() {
-    if(this.pokemonNew.name.trim().length === 0 ) {
-      return;
-    }
-    console.log(this.pokemonNew);
-    this.onPokemonNew.emit( this.pokemonNew );
+  addPokemon() {
+    if(this.pokemonNew.name.trim().length === 0 ) { return; }
+    this.pokemonService.addPokemon( this.pokemonNew );
 
     this.pokemonNew = {
       name: '',

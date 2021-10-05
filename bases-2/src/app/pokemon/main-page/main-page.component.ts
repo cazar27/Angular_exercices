@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../pokemon';
+import { PokemonService } from '../services/pokemon.service';
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
@@ -7,29 +8,15 @@ import { Pokemon } from '../pokemon';
 })
 export class MainPageComponent implements OnInit {
 
+  pokemons: Pokemon[] = [];
+
   pokemonNew: Pokemon = {
     name: '',
     number: 0
   }
 
-  pokemons: Pokemon[] = [
-    {
-      name: 'Bulbasur',
-      number: 1
-    }
-  ]
+  constructor() {}
 
-  constructor() {
-    this.pokemons.push({name: "Charmander", number: 4});
-    this.pokemons.push({name: "Squirtle", number: 7});
-    this.pokemons.push({name: "Caterpie", number: 10});
-  }
-
-  addNewPokemon( pokemon: Pokemon ) {
-    this.pokemons.push(pokemon);
-  };
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }
