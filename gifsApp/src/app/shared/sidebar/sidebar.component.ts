@@ -16,4 +16,12 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  remove( position: number ) {
+    this.gifsService.removeGif( position);
+  }
+
+  search( value: string ) {
+    this.gifsService.searchGifs(value);
+  }
+
 }

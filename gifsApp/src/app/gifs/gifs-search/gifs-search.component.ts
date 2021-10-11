@@ -20,7 +20,7 @@ export class GifsSearchComponent implements OnInit {
     if(valor.trim().length === 0) {
       return;
     }
-    this.gifsServide.buscarGifs( valor );
+    this.gifsServide.searchGifs( valor );
     this.textBuscar.nativeElement.value = "";
   }
 

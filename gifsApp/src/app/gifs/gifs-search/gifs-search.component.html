@@ -1,5 +1,10 @@
-<div class="col">
+<div>
     <h5 class="pt-3">Buscar: </h5>
-    <input #textBuscar (keyup.enter)="buscar()" type="text" class="form-control" placeholder="Buscar gifs">
+    <div class="input-group">
+      <input #textBuscar (keyup.enter)="buscar()" type="text" class="form-control" placeholder="Buscar gifs">
+      <div class="input-group-append">
+        <button type="submit" class="btn btn-success" (click)="buscar()"><i class="bi bi-search"></i> Buscar</button>
+      </div>
+    </div>
     <hr>
 </div>
