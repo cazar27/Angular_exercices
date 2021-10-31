@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ByCountryComponent implements OnInit {
 
+  private title: string = "Por País";
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public get titleSection() : string {
+    return this.title;
   }
 
 }

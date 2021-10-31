@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ByCapitalComponent implements OnInit {
 
+  private title: string = "Por Capital";
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public get titleSection() : string {
+    return this.title;
   }
 
 }
