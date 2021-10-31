@@ -1,2 +1,43 @@
 <h2>{{ titleSection }}</h2>
 <hr>
+<div class="row">
+  <div class="col">
+    <form (ngSubmit)="buscar()" autocomplete="off">
+      <input class="form-control" type="text" name="termino" [(ngModel)]="termino" placeholder="Buscar pais">
+    </form>
+  </div>
+</div>
+<hr>
+
+<div class="row">
+  <div class="col">
+    <div class="alert alert-danger">
+      No se encontro nada con el termino: {{ termino }}
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Bandera</th>
+          <th>Nombre</th>
+          <th>Población</th>
+          <th>Ver detalle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Bandera</td>
+          <td>Nombre</td>
+          <td>12557541</td>
+          <td><a href="">Ver detalle</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
