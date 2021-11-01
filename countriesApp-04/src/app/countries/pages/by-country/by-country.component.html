@@ -9,17 +9,17 @@
 </div>
 <hr>
 
-<div class="row">
+<div class="row" *ngIf="isError">
   <div class="col">
     <div class="alert alert-danger">
-      No se encontro nada con el termino: {{ termino }}
+      {{ messageError }}
     </div>
   </div>
 </div>
 
-<div class="row">
+<div class="row" *ngIf="!isError">
   <div class="col">
-    <table class="table table-hover">
+    <table class="table table-striped table-hover">
       <thead>
         <tr>
           <th>#</th>
@@ -30,12 +30,20 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Bandera</td>
-          <td>Nombre</td>
-          <td>12557541</td>
-          <td><a href="">Ver detalle</a></td>
+        <tr *ngFor="let country of data; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td><img class="flag-small" src="{{ country.flags.png }}" alt="{{ country.name }}"></td>
+          <td>{{ country.name }}</td>
+          <td>{{ country.population | number }}</td>
+          <td>
+            <a
+              [routerLink]="['/by-country',country.alpha2Code]"
+              routerLinkActive="active"
+              class="btn btn-primary"
+            >
+              Ver detalle
+            </a>
+          </td>
         </tr>
       </tbody>
     </table>
