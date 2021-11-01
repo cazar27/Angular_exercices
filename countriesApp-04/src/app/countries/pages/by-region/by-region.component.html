@@ -1,2 +1,24 @@
 <h2>{{ titleSection }}</h2>
 <hr>
+<div class="row">
+  <div class="col">
+    <app-country-input
+      (onSubmit)="buscar( $event )"
+    ></app-country-input>
+  </div>
+</div>
+<hr>
+
+<div class="row" *ngIf="isError">
+  <div class="col">
+    <div class="alert alert-danger">
+      {{ messageError }}
+    </div>
+  </div>
+</div>
+
+<div class="row" *ngIf="!isError">
+  <div class="col">
+    <app-countries-table [data]="data"></app-countries-table>
+  </div>
+</div>

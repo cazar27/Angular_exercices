@@ -6,13 +6,17 @@ import { ByCountryComponent } from './pages/by-country/by-country.component';
 import { ByRegionComponent } from './pages/by-region/by-region.component';
 import { CountryViewComponent } from './pages/country-view/country-view.component';
 import { RouterModule } from '@angular/router';
+import { CountriesTableComponent } from './components/countries-table/countries-table.component';
+import { CountryInputComponent } from './components/country-input/country-input.component';
 
 @NgModule({
   declarations: [
     ByCapitalComponent,
     ByCountryComponent,
     ByRegionComponent,
-    CountryViewComponent
+    CountryViewComponent,
+    CountriesTableComponent,
+    CountryInputComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +27,8 @@ import { RouterModule } from '@angular/router';
     ByCapitalComponent,
     ByCountryComponent,
     ByRegionComponent,
-    CountryViewComponent
+    CountryViewComponent,
+    CountriesTableComponent
   ]
 })
 

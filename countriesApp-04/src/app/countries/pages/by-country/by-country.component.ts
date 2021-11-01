@@ -10,20 +10,22 @@ import { Country } from '../../interfaces/county.interfaces';
 export class ByCountryComponent implements OnInit {
 
   private title: string = "Por País";
-  public termino: string = "España";
   public isError: boolean = false;
   public messageError: string = "";
-  public data: Country[] | undefined;
+  public data: Country[] = [];
+  public termino: string = "España";
 
   constructor( private CountrySrv: CountryService ) { }
 
   ngOnInit(): void {
   }
 
-  public buscar() {
+  //este parametro esta establecido por event emiter viene del componente
+  public buscar( termino: string ) {
 
     this.isError = false;
     this.messageError = "";
+    this.termino = termino;
 
     this.CountrySrv.searchCountry(this.termino)
     .subscribe( (resp) => {
