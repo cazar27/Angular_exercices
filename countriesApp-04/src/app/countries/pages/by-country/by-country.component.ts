@@ -13,7 +13,7 @@ export class ByCountryComponent implements OnInit {
   public isError: boolean = false;
   public messageError: string = "";
   public data: Country[] = [];
-  public termino: string = "España";
+  public term: string = "España";
 
   constructor( private CountrySrv: CountryService ) { }
 
@@ -21,22 +21,21 @@ export class ByCountryComponent implements OnInit {
   }
 
   //este parametro esta establecido por event emiter viene del componente
-  public buscar( termino: string ) {
+  public search( term: string ) : void {
 
     this.isError = false;
     this.messageError = "";
-    this.termino = termino;
+    this.term = term;
 
-    this.CountrySrv.searchCountry(this.termino)
+    this.CountrySrv.searchCountries(this.term)
     .subscribe( (resp) => {
 
       if(resp.length) {
         this.data = resp;
-        console.table(this.data);
       }else {
         this.data = [];
         this.isError = true;
-        this.messageError =  "No se encontro nada con el termino: " + this.termino;
+        this.messageError =  "No se encontro nada con el term: " + this.term;
       }
 
     }, (err) => {
@@ -45,7 +44,12 @@ export class ByCountryComponent implements OnInit {
     });
   }
 
-  public get titleSection() : string {
+  public suggestions( term: string ): void {
+    this.isError = false;
+    this.term = term;
+  }
+
+  public get titleSection(): string {
     return this.title;
   }
 

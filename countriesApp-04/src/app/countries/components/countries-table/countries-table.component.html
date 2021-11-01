@@ -12,11 +12,11 @@
     <tr *ngFor="let country of data; let i = index">
       <td>{{ i + 1 }}</td>
       <td><img class="flag-small" src="{{ country.flags.png }}" alt="{{ country.name }}"></td>
-      <td>{{ country.name }}</td>
+      <td>{{ country.name.official }}</td>
       <td>{{ country.population | number }}</td>
       <td>
         <a
-          [routerLink]="['/by-country',country.alpha2Code]"
+          [routerLink]="['/by-country',country.cca2]"
           routerLinkActive="active"
           class="btn btn-primary"
         >
