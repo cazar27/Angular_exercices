@@ -1,28 +1,15 @@
-
-<h2><i class="bi bi-search"></i> Busquedas</h2>
+<h2>Busquedas</h2>
 <hr>
 <ul class="list-group">
-  <li
-    routerLink="by-country"
-    routerLinkActive="active"
-    class="list-group-item"
-  >
+  <li routerLink="by-country" routerLinkActive="active" class="list-group-item">
     <i class="bi bi-flag"></i> Buscar país
   </li>
-  <li
-    routerLink="by-region"
-    routerLinkActive="active"
-    [routerLinkActiveOptions]="{ exact: true }"
-    class="list-group-item"
-  >
-  <i class="bi bi-geo-alt"></i> Por region
+  <li routerLink="by-capital" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+    class="list-group-item">
+    <i class="bi bi-geo"></i> Por capital
   </li>
-  <li
-    routerLink="by-capital"
-    routerLinkActive="active"
-    [routerLinkActiveOptions]="{ exact: true }"
-    class="list-group-item"
-  >
-  <i class="bi bi-geo"></i> Por capital
+  <li routerLink="by-region" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+    class="list-group-item">
+    <i class="bi bi-geo-alt"></i> Por region
   </li>
 </ul>

@@ -1,25 +1,28 @@
-<h2><i class="bi bi-geo-alt-fill"></i> {{ titleSection }}</h2>
-<hr>
-<div class="row">
-  <div class="col">
-    <app-country-input
-      [placeholder]="placeholder"
-      (onSubmit)="search( $event )"
-      (onDebounce)="suggestions( $event )"
-    ></app-country-input>
-  </div>
-</div>
-
-<div class="row" *ngIf="isError">
-  <div class="colpy1">
-    <div class="alert alert-danger">
-      {{ messageError }}
+<div  class="animate__animated animate__fadeIn animate__faster">
+  <h2><i class="bi bi-geo-alt-fill"></i> {{ titleSection }} {{ regionActive | titlecase }}</h2>
+  <hr>
+  <div class="row">
+    <div class="col-12">
+      <!-- <app-country-input
+        [placeholder]="placeholder"
+        (onSubmit)="search( $event )"
+        (onDebounce)="suggestions( $event )"
+      ></app-country-input> -->
+      <button [ngClass]="class(region)" (click)="search( region )" class="btn mx-2" *ngFor="let region of regions"> {{ region | titlecase }} </button>
     </div>
   </div>
-</div>
 
-<div class="row" *ngIf="!isError && data.length > 0">
-  <div class="col">
-    <app-countries-table [data]="data"></app-countries-table>
+  <div class="row" *ngIf="isError">
+    <div class="col-12 py-2">
+      <div class="alert alert-danger">
+        {{ messageError }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="!isError && data.length > 0">
+    <div class="col-12 py-3">
+      <app-countries-table [data]="data"></app-countries-table>
+    </div>
   </div>
 </div>
