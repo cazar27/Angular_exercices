@@ -10,6 +10,7 @@ import { CountryService } from '../../services/country.service';
 export class ByRegionComponent implements OnInit {
 
   private title: string = "Por Región";
+  public placeholder: string = "Buscar por región";
   public isError: boolean = false;
   public messageError: string = "";
   public data: Country[] = [];
@@ -42,6 +43,11 @@ export class ByRegionComponent implements OnInit {
       this.messageError = err.error.message;
       this.isError = true;
     });
+  }
+
+  public suggestions( term: string ): void {
+    this.isError = false;
+    this.term = term;
   }
 
   public get titleSection(): string {

@@ -1,18 +1,22 @@
 <table class="table table-striped table-hover">
   <thead>
     <tr>
-      <th>#</th>
-      <th>Bandera</th>
-      <th>Nombre</th>
-      <th>Población</th>
-      <th>Ver detalle</th>
+      <th class="position"><small><i class="bi bi-123"></i></small></th>
+      <th><small><i class="bi bi-flag"></i> Bandera</small></th>
+      <th><small><i class="bi bi-geo-alt"></i> Region</small></th>
+      <th><small><i class="bi bi-pin-map"></i> Nombre</small></th>
+      <th><small><i class="bi bi-geo"></i> Capital</small></th>
+      <th class="poblation"><small><i class="bi bi-people"></i> Población</small></th>
+      <th><i class="p-2 bi bi-info-square"></i></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let country of data; let i = index">
-      <td>{{ i + 1 }}</td>
+      <td class="text-center">{{ i + 1 }}</td>
       <td><img class="flag-small" src="{{ country.flags.png }}" alt="{{ country.name }}"></td>
+      <td>{{ country.region }}</td>
       <td>{{ country.name.official }}</td>
+      <td>{{ country.capital }}</td>
       <td>{{ country.population | number }}</td>
       <td>
         <a
@@ -20,7 +24,7 @@
           routerLinkActive="active"
           class="btn btn-primary"
         >
-          Ver detalle
+          <i class="bi bi-info-square-fill"></i>
         </a>
       </td>
     </tr>

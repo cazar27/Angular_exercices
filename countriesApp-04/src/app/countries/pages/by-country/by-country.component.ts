@@ -10,6 +10,7 @@ import { Country } from '../../interfaces/county.interfaces';
 export class ByCountryComponent implements OnInit {
 
   private title: string = "Por País";
+  public placeholder: string = "Buscar por país";
   public isError: boolean = false;
   public messageError: string = "";
   public data: Country[] = [];

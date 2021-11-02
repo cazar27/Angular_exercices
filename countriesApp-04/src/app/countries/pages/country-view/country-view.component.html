@@ -1,1 +1,95 @@
-<p>country-view works!</p>
+<div class="alert alert-info py1" *ngIf="!countryResp; else containerCountry">
+  Espere por favor...
+</div>
+<ng-template #containerCountry>
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-4 py-3">
+      <img src="{{ flags.svg }}" class="img-fluid" alt="{{ name.official }}">
+    </div>
+    <div class="col-12 col-md-8 py-3">
+      <div class="p-3 bg-body rounded shadow-sm">
+        <h6 class="border-bottom pb-2 mb-0">Traducciones</h6>
+        <div class="d-flex pt-3">
+          <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+
+            <span class="badge bg-primary mx-1">{{ countryResp.translations.ara.official }}</span>
+            <span class="badge bg-primary mx-1">{{ countryResp.translations.ces.official }}</span>
+
+            <span class="badge bg-primary mx-1">{{ countryResp.translations.cym.official }}</span>
+            <span class="badge bg-primary mx-1">{{ countryResp.translations.deu.official }}</span>
+            <span class="badge bg-primary mx-1">{{ countryResp.translations.est.official }}</span>
+            <span class="badge bg-primary mx-1">{{ countryResp.translations.fin.official }}</span>
+            <span class="badge bg-primary mx-1">{{ countryResp.translations.fra.official }}</span>
+            <span class="badge bg-primary mx-1">{{ countryResp.translations.hrv.official }}</span>
+            <span class="badge bg-primary mx-1">{{ countryResp.translations.hun.official }}</span>
+            <span class="badge bg-primary mx-1">{{ countryResp.translations.ita.official }}</span>
+            <span class="badge bg-primary mx-1">{{ countryResp.translations.jpn.official }}</span>
+            <span class="badge bg-primary mx-1">{{ countryResp.translations.kor.official }}</span>
+            <span class="badge bg-primary mx-1">{{ countryResp.translations.nld.official }}</span>
+            <span class="badge bg-primary mx-1">{{ countryResp.translations.per.official }}</span>
+            <span class="badge bg-primary mx-1">{{ countryResp.translations.pol.official }}</span>
+            <span class="badge bg-primary mx-1">{{ countryResp.translations.por.official }}</span>
+            <span class="badge bg-primary mx-1">{{ countryResp.translations.rus.official }}</span>
+            <span class="badge bg-primary mx-1">{{ countryResp.translations.slk.official }}</span>
+            <span class="badge bg-primary mx-1">{{ countryResp.translations.spa.official }}</span>
+            <span class="badge bg-primary mx-1">{{ countryResp.translations.swe.official }}</span>
+            <span class="badge bg-primary mx-1">{{ countryResp.translations.urd.official }}</span>
+            <span class="badge bg-primary mx-1">{{ countryResp.translations.zho.official }}</span>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="my-3 p-3 bg-body rounded shadow-sm">
+
+      <h6 class="border-bottom pb-2 mb-0">Información General</h6>
+
+      <div class="d-flex pt-3">
+        <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+          <div class="d-flex justify-content-between">
+            <strong class="text-gray-dark">Nombre Oficial - Capital - Codigo </strong>
+          </div>
+          <span class="d-block">{{ name.official }} - {{ countryResp.capital }} - {{ countryResp.cca2 }}</span>
+        </div>
+      </div>
+
+      <div class="d-flex pt-3">
+        <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+          <div class="d-flex justify-content-between">
+            <strong class="text-gray-dark">Continente o Región</strong>
+          </div>
+          <span class="d-block">{{ countryResp.region }} - {{ countryResp.subregion }} </span>
+        </div>
+      </div>
+
+      <div class="d-flex pt-3">
+        <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+          <div class="d-flex justify-content-between">
+            <strong class="text-gray-dark">Población - Zona horaria</strong>
+          </div>
+          <span class="d-block">{{ countryResp.population }} - {{ countryResp.timezones }}</span>
+        </div>
+      </div>
+
+      <h6 class="border-bottom pb-2 pt-3 mb-0">Mapas</h6>
+
+      <div class="d-flex pt-3">
+        <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+          <div class="d-flex justify-content-between">
+            <strong class="text-gray-dark">Enlaces</strong>
+          </div>
+          <p>
+            <a target="_blank" href="{{ gMap }}">Ir a Mapa en Google Maps</a>
+          </p>
+          <p>
+            <a target="_blank" href="{{ streetMap }}">Ir a Mapa en Street Maps</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

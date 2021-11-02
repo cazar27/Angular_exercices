@@ -1,3 +1,13 @@
 .flag-small {
   width: 60px;
 }
+
+th {
+  min-width: 6rem;
+  &.position {
+    min-width: 2rem;
+  }
+  &.poblation {
+    min-width: 7rem;
+  }
+}

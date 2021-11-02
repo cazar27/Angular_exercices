@@ -1,2 +1,25 @@
-<h2>{{ titleSection }}</h2>
+<h2><i class="bi bi-geo-fill"></i> {{ titleSection }}</h2>
 <hr>
+<div class="row">
+  <div class="col">
+    <app-country-input
+      [placeholder]="placeholder"
+      (onSubmit)="search( $event )"
+      (onDebounce)="suggestions( $event )"
+    ></app-country-input>
+  </div>
+</div>
+
+<div class="row" *ngIf="isError">
+  <div class="colpy1">
+    <div class="alert alert-danger">
+      {{ messageError }}
+    </div>
+  </div>
+</div>
+
+<div class="row" *ngIf="!isError && data.length > 0">
+  <div class="col">
+    <app-countries-table [data]="data"></app-countries-table>
+  </div>
+</div>

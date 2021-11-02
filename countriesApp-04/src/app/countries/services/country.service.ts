@@ -8,27 +8,27 @@ import { Country } from '../interfaces/county.interfaces';
 })
 export class CountryService {
 
-  private apiUrl: string = 'https://restcountries.com/v3.1//';
+  private apiUrl: string = 'https://restcountries.com/v3.1/';
 
   constructor( private http: HttpClient ) { }
 
-  searchCountries( termino: string ): Observable<Country[]> {
-    const url = `${this.apiUrl}/name/${termino}`;
+  searchCountries( param: string ): Observable<Country[]> {
+    const url = `${this.apiUrl}/name/${param}`;
     return this.http.get<Country[]>( url );
   }
 
-  searchRegion( termino: string ): Observable<Country[]> {
-    const url = `${this.apiUrl}/region/${termino}`;
+  searchRegion( param: string ): Observable<Country[]> {
+    const url = `${this.apiUrl}/region/${param}`;
     return this.http.get<Country[]>( url );
   }
 
-  searchCapital( termino: string ): Observable<Country[]> {
-    const url = `${this.apiUrl}/capital/${termino}`;
+  searchCapital( param: string ): Observable<Country[]> {
+    const url = `${this.apiUrl}/capital/${param}`;
     return this.http.get<Country[]>( url );
   }
 
-  searchCountry( termino: string ): Observable<Country[]> {
-    const url = `${this.apiUrl}/alpha/${termino}`;
+  searchCountry( param: string ): Observable<Country[]> {
+    const url = `${this.apiUrl}/alpha/${param}`;
     return this.http.get<Country[]>( url );
   }
 
