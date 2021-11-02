@@ -1,5 +1,5 @@
 <div  class="animate__animated animate__fadeIn animate__faster">
-  <h2><i class="bi bi-flag-fill"></i> {{ titleSection }}</h2>
+  <h4><i class="bi bi-flag-fill"></i> {{ titleSection }}</h4>
   <hr>
   <div class="row">
     <div class="col-12">
@@ -10,6 +10,13 @@
       ></app-country-input>
     </div>
   </div>
+
+  <app-countries-suggestion
+    *ngIf="showSuggestion"
+    [dataSuggestion]="dataSuggestion"
+    [term]="term"
+    (onSearch)="search( $event )"
+  ></app-countries-suggestion>
 
   <div class="row" *ngIf="isError">
     <div class="col-12 py-2">

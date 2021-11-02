@@ -3,11 +3,11 @@
 }
 
 th {
-  min-width: 6rem;
-  &.position {
+  min-width: 5rem;
+  &.position, &.action {
     min-width: 2rem;
   }
-  &.poblation {
+  &.poblation, &.flag {
     min-width: 7rem;
   }
 }

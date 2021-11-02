@@ -3,9 +3,7 @@
 </div>
 <ng-template #containerCountry>
   <div class="row">
-    <div class="col-12 col-sm-6 col-md-4 py-3">
-      <img src="{{ flags.svg }}" class="img-fluid" alt="{{ name.official }}">
-    </div>
+
     <div class="col-12 col-md-8 py-3">
       <div class="p-3 bg-body rounded shadow-sm">
         <h6 class="border-bottom pb-2 mb-0">Traducciones</h6>
@@ -14,7 +12,6 @@
 
             <span class="badge bg-primary mx-1">{{ countryResp.translations.ara.official }}</span>
             <span class="badge bg-primary mx-1">{{ countryResp.translations.ces.official }}</span>
-
             <span class="badge bg-primary mx-1">{{ countryResp.translations.cym.official }}</span>
             <span class="badge bg-primary mx-1">{{ countryResp.translations.deu.official }}</span>
             <span class="badge bg-primary mx-1">{{ countryResp.translations.est.official }}</span>
@@ -41,6 +38,11 @@
       </div>
 
     </div>
+
+    <div class="col-12 col-sm-6 col-md-4 py-3">
+      <img src="{{ flags.svg }}" class="img-fluid" alt="{{ name.official }}">
+    </div>
+
   </div>
   <div class="row">
 

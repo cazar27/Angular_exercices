@@ -8,6 +8,7 @@ import { CountryViewComponent } from './pages/country-view/country-view.componen
 import { RouterModule } from '@angular/router';
 import { CountriesTableComponent } from './components/countries-table/countries-table.component';
 import { CountryInputComponent } from './components/country-input/country-input.component';
+import { CountriesSuggestionComponent } from './components/countries-suggestion/countries-suggestion.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CountryInputComponent } from './components/country-input/country-input.
     ByRegionComponent,
     CountryViewComponent,
     CountriesTableComponent,
-    CountryInputComponent
+    CountryInputComponent,
+    CountriesSuggestionComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import { CountryInputComponent } from './components/country-input/country-input.
     ByCountryComponent,
     ByRegionComponent,
     CountryViewComponent,
-    CountriesTableComponent
+    CountriesTableComponent,
+    CountriesSuggestionComponent
   ]
 })
 

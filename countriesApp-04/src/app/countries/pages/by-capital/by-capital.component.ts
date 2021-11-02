@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Country } from '../../interfaces/county.interfaces';
 import { CountryService } from '../../services/country.service';
 
@@ -7,26 +7,26 @@ import { CountryService } from '../../services/country.service';
   templateUrl: './by-capital.component.html',
   styleUrls: ['./by-capital.component.scss']
 })
-export class ByCapitalComponent implements OnInit {
+export class ByCapitalComponent {
 
   private title: string = "Por Capital";
   public placeholder: string = "Buscar por capital";
   public isError: boolean = false;
   public messageError: string = "";
   public data: Country[] = [];
-  public term: string = "Madrid";
+  public dataSuggestion: Country[] = [];
+  public term: string = "";
+  public showSuggestion: boolean = false;
 
   constructor( private CountrySrv: CountryService ) { }
 
-  ngOnInit(): void {
-  }
-
-  //este parametro esta establecido por event emiter viene del componente
   public search( term: string ) : void {
 
     this.isError = false;
     this.messageError = "";
     this.term = term;
+    this.dataSuggestion = [];
+    this.showSuggestion = false;
 
     this.CountrySrv.searchCapital(this.term)
     .subscribe( (resp) => {
@@ -48,6 +48,13 @@ export class ByCapitalComponent implements OnInit {
   public suggestions( term: string ): void {
     this.isError = false;
     this.term = term;
+    this.showSuggestion = true;
+
+    this.CountrySrv.searchCapital( term )
+      .subscribe(
+        countries => this.dataSuggestion = countries.splice(0,5),
+        (err) => this.dataSuggestion = []
+      );
   }
 
   public get titleSection(): string {

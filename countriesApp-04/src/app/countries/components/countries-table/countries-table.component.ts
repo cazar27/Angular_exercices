@@ -8,6 +8,8 @@ import { Country } from '../../interfaces/county.interfaces';
 })
 export class CountriesTableComponent implements OnInit {
 
+  //TODO: crear el virtual scroll para este componente y que no se haga infinito de primeras
+  //TODO: intentar guardar las busquedas en local para no recargar constantemente
   @Input() data: Country[] = [];
 
   constructor() { }
