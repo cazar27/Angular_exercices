@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
+import { CountryService } from '../../services/country.service';
 import { ByCapitalComponent } from './by-capital.component';
 
 describe('ByCapitalComponent', () => {
@@ -8,7 +10,9 @@ describe('ByCapitalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ByCapitalComponent ]
+      declarations: [ ByCapitalComponent ],
+      imports: [HttpClientTestingModule],
+      providers: [CountryService]
     })
     .compileComponents();
   });
@@ -22,4 +26,15 @@ describe('ByCapitalComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+  it('should create', () => {
+    const service: CountryService = TestBed.get(CountryService);
+    expect(service).toBeTruthy();
+  });
+
+  it('should have getData function', () => {
+    const service: CountryService = TestBed.get(CountryService);
+    expect(service.searchRegion).toBeTruthy();
+   });
 });

@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterModule } from '@angular/router';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { CountryViewComponent } from './country-view.component';
+import { CountryService } from '../../services/country.service';
 
 describe('CountryViewComponent', () => {
   let component: CountryViewComponent;
@@ -8,7 +11,12 @@ describe('CountryViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CountryViewComponent ]
+      declarations: [ CountryViewComponent ],
+      imports: [
+        RouterModule.forRoot([]),
+        HttpClientTestingModule
+      ],
+      providers: [CountryService]
     })
     .compileComponents();
   });
@@ -19,7 +27,14 @@ describe('CountryViewComponent', () => {
     fixture.detectChanges();
   });
 
+
   it('should create', () => {
-    expect(component).toBeTruthy();
+    const service: CountryService = TestBed.get(CountryService);
+    expect(service).toBeTruthy();
   });
+
+  it('should have getData function', () => {
+    const service: CountryService = TestBed.get(CountryService);
+    expect(service.searchCountry).toBeTruthy();
+   });
 });

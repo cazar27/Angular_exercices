@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
 import { Country } from '../interfaces/county.interfaces';
 
 @Injectable({
@@ -11,9 +12,8 @@ export class CountryService {
   private apiUrl: string = 'https://restcountries.com/v3.1/';
 
   private get params(): HttpParams {
-    return new HttpParams().set('fields','name,region,population,capital,cca2,flags');
+    return new HttpParams().set('fields','name,region,population,capital,cca2,cca3,flags');
   }
-
 
   constructor( private http: HttpClient ) { }
 

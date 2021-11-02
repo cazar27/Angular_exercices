@@ -2,27 +2,27 @@
   <table class="table table-striped table-hover">
     <caption>List of countries</caption>
     <thead >
-      <tr>
-        <th class="position"><small><i class="bi bi-123"></i></small></th>
-        <th class="flag"><small><i class="bi bi-flag"></i> Bandera</small></th>
-        <th><small><i class="bi bi-geo-alt"></i> Region</small></th>
-        <th><small><i class="bi bi-pin-map"></i> Nombre</small></th>
-        <th><small><i class="bi bi-geo"></i> Capital</small></th>
-        <th class="poblation"><small><i class="bi bi-people"></i> Población</small></th>
-        <th class="action"><i class="p-2 bi bi-info-square"></i></th>
+      <tr class="row-table">
+        <th class="text-center position"><small><i class="bi bi-123"></i></small></th>
+        <th class="text-center flag"><small><i class="bi bi-flag"></i> Bandera</small></th>
+        <th class="text-center"><small><i class="bi bi-geo-alt"></i> Region</small></th>
+        <th class="text-center"><small><i class="bi bi-pin-map"></i> Nombre</small></th>
+        <th class="text-center"><small><i class="bi bi-geo"></i> Capital</small></th>
+        <th class="text-center poblation"><small><i class="bi bi-people"></i> Población</small></th>
+        <th class="text-center action"><i class="p-2 bi bi-info-square"></i></th>
       </tr>
     </thead>
     <tbody>
-      <tr class="animate__animated animate__fadeIn animate__faster" *ngFor="let country of data; let i = index">
+      <tr class="animate__animated animate__fadeIn animate__faster row-table" *ngFor="let country of data; let i = index">
         <td class="text-center">{{ i + 1 }}</td>
-        <td><img class="flag-small" src="{{ country.flags.png }}" alt="{{ country.name }}"></td>
-        <td>{{ country.region }}</td>
-        <td>{{ country.name.official }}</td>
-        <td>{{ country.capital }}</td>
-        <td>{{ country.population | number }}</td>
-        <td>
+        <td class="text-center"><img class="flag-small" src="{{ country.flags.png }}" alt="{{ country.name }}"></td>
+        <td class="text-center">{{ country.region }}</td>
+        <td class="text-center">{{ country.name.official }}</td>
+        <td class="text-center">{{ country.capital }}</td>
+        <td class="text-center">{{ country.population | number }}</td>
+        <td class="text-center">
           <a
-            [routerLink]="['/by-country',country.cca2]"
+            [routerLink]="['/by-country',country.cca3]"
             routerLinkActive="active"
             class="btn btn-primary"
           >

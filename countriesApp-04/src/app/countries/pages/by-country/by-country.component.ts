@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import { CountryService } from '../../services/country.service';
 import { Country } from '../../interfaces/county.interfaces';
 @Component({
@@ -7,6 +8,10 @@ import { Country } from '../../interfaces/county.interfaces';
   styleUrls: ['./by-country.component.scss']
 })
 export class ByCountryComponent {
+
+  //TODO: Añadir la parte de informacion de covid
+  //- nuevo servicio a la nueva api
+  //- nuevo componente de grafica
 
   private title: string = "Por País";
   public placeholder: string = "Buscar por país";

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Country } from '../../interfaces/county.interfaces';
 import { CountryService } from '../../services/country.service';
 
@@ -21,6 +22,9 @@ export class ByRegionComponent implements OnInit {
   constructor( private CountrySrv: CountryService ) { }
 
   ngOnInit(): void {
+    this.data = [];
+    this.isError = false;
+    this.regionActive = "";
   }
 
   //este parametro esta establecido por event emiter viene del componente
