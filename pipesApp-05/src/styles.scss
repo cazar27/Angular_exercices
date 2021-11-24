@@ -1,4 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+$medium: 768px;
+
 html, body {
   padding: 1rem;
   background-color: var( --surface-b );
@@ -7,4 +8,10 @@ html, body {
 
 .text-layout {
   color: var(--text-color );
+}
+
+div[class^=col] {
+  @media screen and (max-width: $medium) {
+    width: 100%;
+  }
 }

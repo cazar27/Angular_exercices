@@ -1,0 +1,67 @@
+<div class="text-layout">
+  <h1>Pipes Comunes</h1>
+  <p>
+    Pipes incluidos en Angular - Usualmente en el Common Module
+  </p>
+  <h2>Pipes de Textos</h2>
+  <p>
+    Pipes de trasnformacion de texto:
+  </p>
+  <div class="grid">
+    <div class="col-4">
+      <p-card header="Uso: {{ valorLower }}">
+        Valor: {{ valorLower }}
+      </p-card>
+    </div>
+    <div class="col-4">
+      <p-card header="Uso: {{ valorUpper }}">
+        Valor: {{ valorUpper }}
+      </p-card>
+    </div>
+    <div class="col-4">
+      <p-card  header="Uso: {{ valorTitle }}">
+        Valor: {{ valorTitle }}
+      </p-card>
+    </div>
+  </div>
+  <h2>Date | Fechas</h2>
+  <p>
+    Pipes para mostrar fechas, algunos ejemplos:
+  </p>
+  <div class="grid">
+    <div class="col-6">
+      <p-card>
+          <ul>
+            <li><b>Fecha sin formato</b></li>
+            <li>{{ today }}</li>
+          </ul>
+      </p-card>
+    </div>
+    <div class="col-6">
+      <p-card>
+          <ul>
+            <li><b>Fecha | date </b>{{ today | date }}</li>
+            <li><b>Fecha | date'sort' </b>{{ today | date:'sort' }}</li>
+            <li><b>Fecha | date:'long' </b>{{ today| date:'long' }}</li>
+          </ul>
+      </p-card>
+    </div>
+    <div class="col-6">
+      <p-card>
+          <ul>
+            <li><b>Fecha dd/MM/yy </b>{{ today | date:'dd/MM/yy' }}</li>
+          </ul>
+      </p-card>
+    </div>
+    <div class="col-6">
+      <p-card>
+          <ul>
+            <li><b>Mes Ingles </b>{{  today | date:'MMMM' }} - {{  today | date:'MM'  }}</li>
+          </ul>
+          <ul>
+            <li><b>Fecha MMMM, yy, dd </b>{{ today | date:'MMMM, yyyy, dd' }}</li>
+          </ul>
+      </p-card>
+    </div>
+  </div>
+</div>
