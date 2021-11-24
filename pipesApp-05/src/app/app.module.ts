@@ -3,12 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 
+import { PrimeNgModule } from './prime-ng/prime-ng.module';
+
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    PrimeNgModule
+  ],
+  exports: [
+    PrimeNgModule
   ],
   providers: [],
   bootstrap: [AppComponent]
