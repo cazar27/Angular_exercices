@@ -32,34 +32,39 @@
     <div class="col-6">
       <p-card>
           <ul>
-            <li><b>Fecha sin formato</b></li>
+            <li><b>Fecha sin formato:</b></li>
             <li>{{ today }}</li>
           </ul>
       </p-card>
     </div>
     <div class="col-6">
       <p-card>
+        <ul>
+          <li><b>Mes letra/numero: </b>{{  today | date:'MMMM' }} / {{  today | date:'MM'  }}</li>
+          <li><b>Fecha MMMM, yy, dd: </b>{{ today | date:'MMMM, yyyy, dd' }}</li>
+        </ul>
+      </p-card>
+    </div>
+    <div class="col-6">
+      <p-card>
           <ul>
-            <li><b>Fecha | date </b>{{ today | date }}</li>
-            <li><b>Fecha | date'sort' </b>{{ today | date:'sort' }}</li>
-            <li><b>Fecha | date:'long' </b>{{ today| date:'long' }}</li>
+            <li><b>Fecha dd/MM/yy: </b>{{ today | date:'dd/MM/yy' }}</li>
           </ul>
       </p-card>
     </div>
     <div class="col-6">
       <p-card>
           <ul>
-            <li><b>Fecha dd/MM/yy </b>{{ today | date:'dd/MM/yy' }}</li>
+            <li><b>Fecha | date: </b>{{ today | date }}</li>
+            <li><b>Fecha | date'sort': </b>{{ today | date:'sort' }}</li>
+            <li><b>Fecha | date:'long': </b>{{ today| date:'long' }}</li>
           </ul>
-      </p-card>
-    </div>
-    <div class="col-6">
-      <p-card>
+          <hr>
           <ul>
-            <li><b>Mes Ingles </b>{{  today | date:'MMMM' }} - {{  today | date:'MM'  }}</li>
-          </ul>
-          <ul>
-            <li><b>Fecha MMMM, yy, dd </b>{{ today | date:'MMMM, yyyy, dd' }}</li>
+            <li><b>Fecha Ingles USA(date:'medium':'GTM-0':'en-US'): </b>{{ today | date:'medium':'GTM-0':'en-US' }}</li>
+            <li><b>Fecha Ingles GB(date:'medium':'GTM-5':'en-GB'): </b>{{ today | date:'medium':'GTM-5':'en-GB' }}</li>
+            <li><b>Fecha Frances Canada  </b>{{ today| date:'medium':'GTM-1':'fr-CA' }}</li>
+            <li><b>Fecha Frances Frances long: </b>{{ today| date:'long':'GTM-5':'fr' }}</li>
           </ul>
       </p-card>
     </div>
