@@ -1,0 +1,17 @@
+.container-form {
+  > div {
+    padding: 1rem 0;
+    width: 100%;
+  }
+  input {
+    width: 100%;
+  }
+
+  .p-field-radiobutton > * {
+    padding: 0 1rem;
+  }
+}
+
+button.p-button {
+  width: 100%;
+}

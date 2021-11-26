@@ -1,5 +1,7 @@
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
@@ -15,6 +17,7 @@ import localFrCA from '@angular/common/locales/fr-CA';
 import localFr from '@angular/common/locales/fr';
 
 import { registerLocaleData } from '@angular/common';
+
 registerLocaleData( localES );
 registerLocaleData( localESMX );
 registerLocaleData( localEN );
@@ -27,9 +30,10 @@ registerLocaleData( localFr );
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRouterModule,
     SharedModule,
-    VentasModule
+    VentasModule,
   ],
   exports: [],
   providers: [

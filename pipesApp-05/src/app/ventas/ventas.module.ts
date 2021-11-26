@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule } from '@angular/forms';
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 
 import { NumbersComponent } from './pages/numbers/numbers.component';
@@ -19,7 +19,8 @@ import { SortedComponent } from './pages/sorted/sorted.component';
   ],
   imports: [
     CommonModule,
-    PrimeNgModule
+    PrimeNgModule,
+    FormsModule
   ],
   exports: [
     NumbersComponent,

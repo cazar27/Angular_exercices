@@ -1,1 +1,88 @@
-<p>no-commond works!</p>
+<div class="text-layout">
+  <h1>Pipes no Comunues</h1>
+  <p>
+    Pipes incluidos en Angular - Usualmente en el Common Module
+  </p>
+  <h2>Pipes para decimales</h2>
+  <p>
+    Pipes de trasnformacion de numeros:
+  </p>
+
+  <div class="grid">
+    <div class="col-6">
+      <p-fieldset [toggleable]="true">
+        <ng-template pTemplate="header">Ejemplo de i18nSelect pipe</ng-template>
+        <p>
+          Saludos {{ nombre }},
+          es un placer {{ genero | i18nSelect:invitacionMap }}
+          a nuestro evento.
+        </p>
+        <p-card>
+          <div class="container-form">
+            <div class="p-inputgroup">
+              <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+              <input [(ngModel)]="nombre" type="text" pInputText placeholder="Username">
+            </div>
+            <div class="p-field-radiobutton">
+              <p-radioButton name="genero" value="masculino" [(ngModel)]="genero" inputId="masculino"></p-radioButton>
+              <label for="masculino">{{'masculino'|titlecase}}</label>
+              <p-radioButton name="genero" value="femenino" [(ngModel)]="genero" inputId="femenino"></p-radioButton>
+              <label for="femenino">{{'femenino'|titlecase}}</label>
+            </div>
+            <div class="p-inputgroup">
+              <button (click)="addCustomer()" pButton type="button" icon="pi pi-check" label="Añadir Cliente" iconPos="left"></button>
+            </div>
+          </div>
+        </p-card>
+      </p-fieldset>
+    </div>
+    <div class="col-6">
+      <p-fieldset [toggleable]="true">
+        <ng-template pTemplate="header">Ejemplo de i18nPlural pipe</ng-template>
+        <p>
+          Actualmente {{ clientes.length | i18nPlural:clientesMap }} esperando.
+        </p>
+        <p-card>
+          <button
+            pButton
+            (click)="removeCustomer()"
+            type="button"
+            icon="pi pi-trash"
+            label="Eliminar Cliente"
+            class="p-button-outlined p-button-danger"></button>
+        </p-card>
+      </p-fieldset>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="col-6">
+      <p-fieldset [toggleable]="true">
+        <ng-template pTemplate="header">Ejemplo de json y slice</ng-template>
+        <div class="grid">
+          <div class="col-6">
+            <b>Clientes pipe json</b>
+            <pre> {{clientes | json}} </pre>
+          </div>
+          <div class="col-6">
+            <b>Clientes pipe slice:0:2 json </b>
+            <pre> {{clientes | slice:0:2 | json}} </pre>
+          </div>
+        </div>
+      </p-fieldset>
+    </div>
+    <div class="col-6">
+      <p-fieldset [toggleable]="true">
+        <ng-template pTemplate="header">Ejemplo de keyvalue</ng-template>
+        <p><b> let item of items | keyvalue </b></p>
+        <ul>
+          <li *ngFor="let items of clientes">
+            <span *ngFor="let item of items | keyvalue" >
+              <b>{{ item.key | titlecase }}</b>: {{  item.value | titlecase }}<br>
+            </span>
+          </li>
+        </ul>
+      </p-fieldset>
+    </div>
+  </div>
+</div>
