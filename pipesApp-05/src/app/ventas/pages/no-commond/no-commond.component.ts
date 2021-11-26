@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { interval } from 'rxjs';
 
 import { PrimeNGConfig } from 'primeng/api';
 import { Cliente } from '../cliente.interface';
@@ -54,4 +55,10 @@ export class NoCommondComponent implements OnInit {
     this.clientes =  this.clienteServ.returnclientes;
   }
 
+  miObservable = interval(1000); // 0, 1, 2...
+  valorPromesa = new Promise( (resolve, reject) => {
+    setTimeout(() => {
+      resolve( 'Tenemos data de la promesa' );
+    }, 3500 );
+  });
 }

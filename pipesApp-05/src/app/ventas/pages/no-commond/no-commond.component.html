@@ -73,7 +73,7 @@
     </div>
     <div class="col-6">
       <p-fieldset [toggleable]="true">
-        <ng-template pTemplate="header">Ejemplo de keyvalue</ng-template>
+        <ng-template pTemplate="header">Ejemplo de keyvalue y async pipe</ng-template>
         <p><b> let item of items | keyvalue </b></p>
         <ul>
           <li *ngFor="let items of clientes">
@@ -82,6 +82,16 @@
             </span>
           </li>
         </ul>
+        <p>
+          <b>
+            miObservable | async
+          </b>
+        </p>
+        <pre>{{ miObservable | async }}</pre>
+        <p *ngIf="!(valorPromesa | async)">
+            Resolviendo el valor de la promesa | async
+        </p>
+        <pre *ngIf="valorPromesa | async">{{ valorPromesa | async }}</pre>
       </p-fieldset>
     </div>
   </div>
