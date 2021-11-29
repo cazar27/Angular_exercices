@@ -9,7 +9,13 @@ export class SortedComponent implements OnInit {
 
   constructor() { }
 
+  mayuscula: boolean = false;
+
   ngOnInit(): void {
+  }
+
+  toogleTransform() {
+    this.mayuscula = !this.mayuscula;
   }
 
 }

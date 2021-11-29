@@ -7,15 +7,15 @@ import { NumbersComponent } from './pages/numbers/numbers.component';
 import { NoCommondComponent } from './pages/no-commond/no-commond.component';
 import { CommondComponent } from './pages/commond/commond.component';
 import { SortedComponent } from './pages/sorted/sorted.component';
-
-
+import { MayusPipe } from '../pipes/mayus.pipe';
 
 @NgModule({
   declarations: [
     NumbersComponent,
     NoCommondComponent,
     CommondComponent,
-    SortedComponent
+    SortedComponent,
+    MayusPipe
   ],
   imports: [
     CommonModule,

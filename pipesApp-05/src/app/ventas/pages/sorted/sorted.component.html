@@ -1,1 +1,10 @@
-<p>sorted works!</p>
+<div class="text-layout">
+  <h1>Pipes personalizados</h1>
+  <p>
+    Pipes creados por nosotros mismos
+  </p>
+  <p>
+     {{ 'Pipe personalizado para transformar a MayusculA o minuscula' | Mayus:mayuscula }}
+  </p>
+  <button (click)="toogleTransform()" pButton type="button" icon="pi" label="Cambiar Texto" iconPos="left"></button>
+</div>
