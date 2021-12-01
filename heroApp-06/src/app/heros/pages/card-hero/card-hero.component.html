@@ -1,0 +1,53 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div
+      mat-card-avatar
+      class="example-header-image"
+      style="background-image: url('{{ heroe.img_face | imagen:heroe.img_face?.length!==0:heroe.superhero! }}');"
+    ></div>
+    <mat-card-title>{{ heroe.superhero }}</mat-card-title>
+    <mat-card-subtitle>{{ heroe.publisher }}</mat-card-subtitle>
+  </mat-card-header>
+  <img
+    mat-card-image
+    src="{{ heroe.img | imagen:heroe.img?.length!==0:heroe.id! }}"
+    alt="{{ heroe.superhero }}"
+  >
+  <mat-card-content>
+    <p>
+      <b>Primera apricion: </b> {{ heroe.first_appearance }}
+    </p>
+    <p>
+      <b>Alterego: </b>  {{ heroe.alter_ego }}
+    </p>
+    <p>
+      <b>Personajes: </b> {{ heroe.characters }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button mat-raised-button color="primary">
+      <span class="material-icons">
+        info
+      </span>
+      <span class="text-btn">
+         Información
+      </span>
+    </button>
+    <button mat-button mat-raised-button color="accent">
+      <span class="material-icons">
+        mode_edit
+      </span>
+      <span class="text-btn">
+         Editar
+      </span>
+    </button>
+    <button mat-button mat-raised-button color="warn" >
+      <span class="material-icons">
+        restore_from_trash
+      </span>
+      <span class="text-btn">
+         Eliminar
+      </span>
+    </button>
+  </mat-card-actions>
+</mat-card>

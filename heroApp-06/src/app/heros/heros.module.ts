@@ -8,12 +8,16 @@ import { HomeHeroComponent } from './pages/home-hero/home-hero.component';
 import { ListHeroComponent } from './pages/list-hero/list-hero.component';
 import { HeroRouting } from './hero-routing.module';
 import { MaterialModule } from '../material/material.module';
+import { CardHeroComponent } from './pages/card-hero/card-hero.component';
+import { ImagenPipe } from './pipes/heroes-img.pipe';
 @NgModule({
   declarations: [
     AddHeroComponent,
     SearchHeroComponent,
     HomeHeroComponent,
-    ListHeroComponent
+    ImagenPipe,
+    ListHeroComponent,
+    CardHeroComponent,
   ],
   imports: [
     CommonModule,

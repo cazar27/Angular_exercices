@@ -4,34 +4,34 @@
       <mat-icon>menu</mat-icon> Menu
     </button>
     <mat-nav-list>
-      <a mat-list-item  (click)="sidenav.toggle()" routerLink="./list">
+      <a mat-list-item (click)="sidenav.toggle()" routerLink="./list">
         <mat-icon mat-list-icon> label </mat-icon>
         <span>
-          Listado de Productos
+          Listado de Heroes
         </span>
       </a>
-      <a mat-list-item  (click)="sidenav.toggle()" routerLink="./search">
+      <a mat-list-item (click)="sidenav.toggle()" routerLink="./search">
         <mat-icon mat-list-icon> search </mat-icon>
         <span>
-          Buscar Producto
+          Buscar Heroe
         </span>
       </a>
-      <a mat-list-item  (click)="sidenav.toggle()" routerLink="./add">
+      <a mat-list-item (click)="sidenav.toggle()" routerLink="./add">
         <mat-icon mat-list-icon> add </mat-icon>
         <span>
-          Añadir Producto
+          Añadir Heroe
         </span>
       </a>
-      <a mat-list-item  (click)="sidenav.toggle()" routerLink="./add">
+      <a mat-list-item (click)="sidenav.toggle()" routerLink="./add">
         <span></span>
       </a>
-     </mat-nav-list>
+    </mat-nav-list>
   </mat-sidenav>
   <mat-toolbar class="toolbar-position">
     <button mat-raised-button color="primary" (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon> Menu
     </button>
-    <button mat-raised-button color="warn" >
+    <button mat-raised-button color="warn">
       <mat-icon>logout</mat-icon> Logout
     </button>
   </mat-toolbar>

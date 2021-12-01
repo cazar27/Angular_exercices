@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+import { DataService } from 'src/app/services/data.service';
+import { Hero } from 'src/app/interfaces/hero.interfaces';
 
 @Component({
   selector: 'app-list-hero',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListHeroComponent implements OnInit {
 
-  constructor() { }
+  heroes: Hero[] = [];
+
+  constructor(
+    private location: Location,
+    public dataServ: DataService,
+  ) { }
+
+  goBack(): void {
+    this.location.back();
+  }
 
   ngOnInit(): void {
+
+    this.dataServ.getItems.subscribe(heroes => { this.heroes = heroes; });
+
   }
 
 }
