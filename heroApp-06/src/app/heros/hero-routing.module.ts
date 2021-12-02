@@ -5,6 +5,7 @@ import { AddHeroComponent } from './pages/add-hero/add-hero.component';
 import { ListHeroComponent } from './pages/list-hero/list-hero.component';
 import { SearchHeroComponent } from './pages/search-hero/search-hero.component';
 import { HomeHeroComponent } from './pages/home-hero/home-hero.component';
+import { DetailHeroComponent } from './pages/detail-hero/detail-hero.component';
 
 const routes: Routes = [
   {
@@ -29,7 +30,7 @@ const routes: Routes = [
       },
       {
         path: ':id',
-        component: HomeHeroComponent
+        component: DetailHeroComponent
       },
       {
         path: '**',

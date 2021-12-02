@@ -25,15 +25,15 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button mat-raised-button color="primary">
+    <button mat-button mat-raised-button color="primary"  [routerLink]="['/heroes/', heroe.id ]">
       <span class="material-icons">
         info
       </span>
       <span class="text-btn">
-         Información
+         Detalles
       </span>
     </button>
-    <button mat-button mat-raised-button color="accent">
+    <button mat-button mat-raised-button color="accent"  [routerLink]="['/heroes/edit/', heroe.id ]">
       <span class="material-icons">
         mode_edit
       </span>

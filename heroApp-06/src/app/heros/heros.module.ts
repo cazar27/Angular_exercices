@@ -10,6 +10,7 @@ import { HeroRouting } from './hero-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { CardHeroComponent } from './pages/card-hero/card-hero.component';
 import { ImagenPipe } from './pipes/heroes-img.pipe';
+import { DetailHeroComponent } from './pages/detail-hero/detail-hero.component';
 @NgModule({
   declarations: [
     AddHeroComponent,
@@ -18,6 +19,7 @@ import { ImagenPipe } from './pipes/heroes-img.pipe';
     ImagenPipe,
     ListHeroComponent,
     CardHeroComponent,
+    DetailHeroComponent,
   ],
   imports: [
     CommonModule,
