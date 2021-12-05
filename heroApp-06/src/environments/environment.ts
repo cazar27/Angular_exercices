@@ -12,8 +12,8 @@ export const environment = {
     projectId: "heroes-28fa0",
     storageBucket: "heroes-28fa0.appspot.com",
     messagingSenderId: "496547894358",
-    appId: "1:496547894358:web:3adbd754ee55ebc0f417f7",
-    measurementId: "G-VC1LNN5F3Q",
+    appId: "1:496547894358:web:f5057cf0c4cc5e5cf417f7",
+    measurementId: "G-TJ33SZKEF4"
   }
 };
 

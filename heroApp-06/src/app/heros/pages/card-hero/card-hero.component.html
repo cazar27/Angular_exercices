@@ -3,7 +3,7 @@
     <div
       mat-card-avatar
       class="example-header-image"
-      style="background-image: url('{{ heroe.img_face | imagen:heroe.img_face?.length!==0:heroe.superhero! }}');"
+      style="background-image: url('{{ heroe.img_face | imagen:heroe.img_face?.length!==0:heroe.id! }}');"
     ></div>
     <mat-card-title>{{ heroe.superhero }}</mat-card-title>
     <mat-card-subtitle>{{ heroe.publisher }}</mat-card-subtitle>

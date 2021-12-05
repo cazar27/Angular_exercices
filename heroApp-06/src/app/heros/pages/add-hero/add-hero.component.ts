@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Hero, Publisher } from 'src/app/interfaces/hero.interfaces';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-add-hero',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddHeroComponent implements OnInit {
 
-  constructor() { }
+  public heroes: Hero[] = [];
+  constructor( private dataServ: DataService ) { }
 
   ngOnInit(): void {
+
+  }
+
+  public addAll(heroe: Hero): void {
+    this.dataServ.addItem(heroe);
   }
 
 }

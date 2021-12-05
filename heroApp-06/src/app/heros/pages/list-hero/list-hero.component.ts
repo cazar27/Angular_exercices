@@ -14,7 +14,7 @@ export class ListHeroComponent implements OnInit {
 
   constructor(
     private location: Location,
-    public dataServ: DataService,
+    private dataServ: DataService,
   ) { }
 
   goBack(): void {
@@ -22,9 +22,7 @@ export class ListHeroComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.dataServ.getItems.subscribe(heroes => { this.heroes = heroes; });
-
   }
 
 }

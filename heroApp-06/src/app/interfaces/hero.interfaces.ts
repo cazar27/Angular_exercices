@@ -1,7 +1,7 @@
 
 export enum Publisher {
-  DCComics = "Mundo DC",
-  MarvelComics = "Mundo Marvel",
+  DCComics = "DC Comics",
+  MarvelComics = "Marvel Comics",
 }
 
 export interface Hero {

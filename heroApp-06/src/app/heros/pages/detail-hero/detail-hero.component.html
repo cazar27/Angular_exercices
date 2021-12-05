@@ -1,1 +1,55 @@
-<p>detail-hero works!</p>
+<mat-grid-list cols="1" *ngIf="!heroe; else boxHeroe">
+  <mat-grid-tile>
+    <mat-spinner></mat-spinner>
+  </mat-grid-tile>
+</mat-grid-list>
+<ng-template #boxHeroe>
+  <div
+    fxLayout="row"
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="1rem">
+
+    <div
+      fxFlex="40"
+      fxFlex.md="45"
+      fxFlex.sm="50"
+      fxFlex.xs="100"
+    >
+      <h3 class="title"> {{ heroe?.superhero }} </h3>
+      <mat-divider></mat-divider>
+      <br>
+      <img
+        class="img-detail"
+        src="{{ heroe!.img | imagen:heroe!.img?.length!==0:heroe!.id! }}"
+        alt="{{ heroe!.superhero }}"
+      >
+    </div>
+    <div
+      fxFlex="40"
+      fxFlex.md="45"
+      fxFlex.sm="50"
+      fxFlex.xs="100"
+    >
+      <h3 class="title">{{ heroe?.publisher }}</h3>
+      <div
+        class="avatar"
+        style="background-image: url('{{ heroe!.img_face | imagen:heroe!.img_face?.length!==0:heroe!.superhero! }}');"
+      ></div>
+      <mat-divider></mat-divider>
+      <mat-list>
+        <mat-list-item><b>Primera Aparición:</b> {{ heroe?.first_appearance }}</mat-list-item>
+        <mat-list-item><b>Alterego:</b> {{ heroe?.alter_ego }}</mat-list-item>
+        <mat-list-item><b>Personajes:</b> {{ heroe?.characters }}</mat-list-item>
+      </mat-list>
+      <button mat-button mat-raised-button color="primary"(click)="back()">
+        <span class="material-icons">
+        </span>
+        <span class="text-btn">
+           Volver
+        </span>
+      </button>
+    </div>
+  </div>
+
+</ng-template>

@@ -1,1 +1,43 @@
-<p>search-hero works!</p>
+<div fxLayout="column">
+  <div>
+    <h1>
+      Buscador de Heroes
+    </h1>
+    <mat-divider></mat-divider>
+  </div>
+  <div>
+
+    <form class="example-form">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Heroe</mat-label>
+        <input
+          type="text"
+          placeholder="Elige un Heroe"
+          aria-label="Heroe"
+          matInput
+          (input)="searching()"
+          [(ngModel)]="termino"
+          [matAutocomplete]="auto"
+          [ngModelOptions]="{standalone: true}"
+        >
+        <mat-autocomplete
+          autoActiveFirstOption
+          #auto="matAutocomplete"
+          (optionSelected)="selectedOption($event)"
+          >
+          <mat-option
+            *ngFor="let heroe of heroes | async"
+            [value]="heroe"
+            >
+              {{heroe.superhero}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+  </div>
+  <div>
+    <pre>
+      {{ selectedHero | json }}
+    </pre>
+  </div>
+</div>
