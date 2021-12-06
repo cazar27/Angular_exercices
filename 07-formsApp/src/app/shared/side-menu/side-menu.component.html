@@ -1,1 +1,32 @@
-<p>side-menu works!</p>
+<div class="py-5 px-2">
+
+  <h2>Template</h2>
+  <hr>
+  <ul class="list-group">
+
+    <li
+      class="list-group-item"
+      *ngFor="let item of menuTemplateItems"
+      [routerLink]="item.path"
+      routerLinkActive="active">
+        {{item.text}}
+    </li>
+
+  </ul>
+  <br>
+  <h2>Reactive</h2>
+  <hr>
+
+  <ul class="list-group">
+
+    <li
+      class="list-group-item"
+      *ngFor="let item of menuReactiveItems"
+      [routerLink]="item.path"
+      routerLinkActive="active">
+        {{item.text}}
+    </li>
+
+  </ul>
+
+</div>
