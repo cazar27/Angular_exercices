@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AuthRouting } from './auth-routing.module';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { AuthRouting } from './auth-routing.module';
   ],
   imports: [
     AuthRouting,
-    CommonModule
+    CommonModule,
+    MaterialModule
   ]
 })
 export class AuthModule { }

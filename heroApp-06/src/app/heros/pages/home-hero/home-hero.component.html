@@ -30,12 +30,20 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-toolbar class="toolbar-position">
-    <button mat-raised-button color="primary" (click)="sidenav.toggle()">
-      <mat-icon>menu</mat-icon> Menu
-    </button>
-    <button mat-raised-button color="warn">
-      <mat-icon>logout</mat-icon> Logout
-    </button>
+    <div>
+      <button mat-raised-button color="primary" (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon> Menu
+      </button>
+    </div>
+    <div>
+      <span *ngIf="usuario">
+        <mat-icon>account_circle</mat-icon>
+        {{ usuario?.name }}
+      </span>
+      <button (click)="logout()" mat-raised-button color="warn">
+        <mat-icon>logout</mat-icon> Logout
+      </button>
+    </div>
   </mat-toolbar>
   <div class="container">
     <router-outlet></router-outlet>
