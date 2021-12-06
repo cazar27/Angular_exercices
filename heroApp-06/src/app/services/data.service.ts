@@ -19,7 +19,7 @@ export class DataService {
   }
 
   public getItem(id: string): Observable<Hero[]> {
-    return this.firestore.collection<Hero>('heroes',ref => ref.where('id','==',id)).valueChanges();
+    return this.firestore.collection<Hero>('heroes',ref => ref.where('id','==',id).limit(1)).valueChanges();
   }
 
   public setItem(id: string, value: Hero): void {

@@ -1,0 +1,34 @@
+<h1 mat-dialog-title>Eliminar {{data.heroe.superhero}}</h1>
+<div mat-dialog-content>
+  <p>Desea usted eliminar el heroe heroe?</p>
+</div>
+<div mat-dialog-actions>
+
+  <button
+    mat-button
+    mat-raised-button color="accent"
+    (click)="onNoClick()"
+  >
+    <span class="material-icons">
+      mode_edit
+    </span>
+    <span class="text-btn">
+       Cancelar
+    </span>
+  </button>
+
+  <button
+    mat-button
+    mat-raised-button
+    color="warn"
+    cdkFocusInitial
+    (click)="confirm()"
+  >
+    <span class="material-icons">
+      restore_from_trash
+    </span>
+    <span class="text-btn">
+      Confirmar
+    </span>
+  </button>
+</div>

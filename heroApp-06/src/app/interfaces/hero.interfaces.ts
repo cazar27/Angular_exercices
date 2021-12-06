@@ -5,7 +5,7 @@ export enum Publisher {
 }
 
 export interface Hero {
-  id?: string,
+  id: string,
   superhero: string,
   publisher: Publisher,
   alter_ego: string,
