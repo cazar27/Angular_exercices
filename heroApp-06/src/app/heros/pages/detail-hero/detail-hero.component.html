@@ -34,7 +34,7 @@
       <h3 class="title">{{ heroe?.publisher }}</h3>
       <div
         class="avatar"
-        style="background-image: url('{{ heroe!.img_face | imagen:heroe!.img_face?.length!==0:heroe!.superhero! }}');"
+        style="background-image: url('{{ heroe!.img_face | imagen:heroe!.img_face?.length!==0:heroe!.id! }}');"
       ></div>
       <mat-divider></mat-divider>
       <mat-list>

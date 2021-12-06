@@ -4,8 +4,99 @@
   </mat-grid-tile>
 </mat-grid-list> -->
 
-<button mat-button mat-raised-button color="primary">
-  <span class="text-btn">
-    Añadir Heroe
-  </span>
-</button>
+<h1>
+  Añadir Nuevo Heroe <span>heroe</span>
+</h1>
+<div fxLayout="row" fxLayout.xs="column">
+  <div fxFlex="50" fxLayout="column">
+    <mat-form-field fxFlex="100">
+      <mat-label>Super Heroe</mat-label>
+      <input
+        matInput
+        required
+        type="text"
+        [(ngModel)]="heroe!.superhero"
+      >
+    </mat-form-field>
+    <mat-form-field fxFlex="100">
+      <mat-label>Alter Ego</mat-label>
+      <input
+        [(ngModel)]="heroe!.alter_ego"
+        matInput
+        required
+        type="text"
+      >
+    </mat-form-field>
+
+    <mat-form-field fxFlex="100">
+      <mat-label>Personajes</mat-label>
+      <input
+        [(ngModel)]="heroe!.characters"
+        matInput
+        required
+        type="text"
+      >
+    </mat-form-field>
+
+    <mat-form-field fxFlex="100">
+      <mat-label>Primera Aparición</mat-label>
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="heroe!.first_appearance"
+      >
+    </mat-form-field>
+
+    <mat-form-field fxFlex="100">
+      <mat-label>Creador</mat-label>
+      <mat-select
+      [(ngModel)]="heroe!.publisher"
+      >
+        <mat-option *ngFor="let publisher of publisherList" [value]="publisher">{{publisher}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field fxFlex="100">
+      <mat-label>Imagen Heroe Url</mat-label>
+      <input
+        [(ngModel)]="heroe!.img"
+        matInput
+        type="text"
+      >
+    </mat-form-field>
+
+    <mat-form-field fxFlex="100">
+      <mat-label>Imagen Avatar Url</mat-label>
+      <input
+        [(ngModel)]="heroe!.img_face"
+        matInput
+        type="text"
+      >
+    </mat-form-field>
+
+    <br>
+    <button mat-button mat-raised-button color="primary" (click)="save()">
+      <span class="material-icons">
+        save
+        </span>
+      <span class="text-btn">
+         Guardar
+      </span>
+    </button>
+    <br>
+    <button mat-button mat-raised-button color="primary"(click)="back()">
+      <span class="material-icons">
+      </span>
+      <span class="text-btn">
+         Volver
+      </span>
+    </button>
+  </div>
+
+  <div fxFlex="50">
+    <img src="{{ heroe!.img | imagen:heroe!.img?.length!==0:heroe!.id! }}"
+    alt="{{ heroe!.superhero }}">
+  </div>
+
+
+</div>

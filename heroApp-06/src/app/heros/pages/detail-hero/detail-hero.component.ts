@@ -18,7 +18,7 @@ export class DetailHeroComponent implements OnInit {
   ) { }
 
   public heroes!: Hero[];
-  public heroe!: Hero | undefined;
+  public heroe: Hero | undefined;
 
   ngOnInit(): void {
 

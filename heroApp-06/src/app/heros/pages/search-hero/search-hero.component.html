@@ -35,9 +35,8 @@
       </mat-form-field>
     </form>
   </div>
-  <div>
-    <pre>
-      {{ selectedHero | json }}
-    </pre>
+  <div *ngIf="termino.length>0" value="">No hay heroes que empiecen por: {{termino}}</div>
+  <div *ngIf="selectedHero">
+    <app-card-hero [heroe]="selectedHero"></app-card-hero>
   </div>
 </div>

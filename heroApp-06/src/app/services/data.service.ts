@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
+import { Observable, filter } from 'rxjs';
 import { Hero } from 'src/app/interfaces/hero.interfaces';
 
 @Injectable({
@@ -19,19 +19,20 @@ export class DataService {
   }
 
   public getItem(id: string): Observable<Hero[]> {
-    return this.collection.valueChanges(id);
+    return this.firestore.collection<Hero>('heroes',ref => ref.where('id','==',id)).valueChanges();
   }
 
   public setItem(id: string, value: Hero): void {
-    this.collection.doc(id).set(value);
+    this.collection.doc(id).update(value);
   }
 
-  public addItem(item: Hero): void {
-    this.collection.add(item);
+  public addItem(id:string, item: Hero): void {
+    this.collection.doc(id).set(item);
   }
+
 
   public deleteItem(id: string): void {
-    this.collection.doc(id).delete;
+    this.collection.doc(id).delete();
   }
 
   public searchHero(term: string): Observable<Hero[]> {

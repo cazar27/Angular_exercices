@@ -26,8 +26,14 @@ export class SearchHeroComponent implements OnInit {
   }
 
   selectedOption(event: MatAutocompleteSelectedEvent) {
-    this.selectedHero = event.option.value;
-    this.termino = this.selectedHero.superhero;
+
+    //TODO: validate selection
+    if(event.option.value != '') {
+      this.selectedHero = event.option.value;
+      this.termino = this.selectedHero.superhero;
+    } else {
+      console.log("no hay valores en el array");
+    }
 }
 
 }
