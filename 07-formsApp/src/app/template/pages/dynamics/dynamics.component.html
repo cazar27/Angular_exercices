@@ -1,7 +1,7 @@
-<h2>Template: Dinámicos</h2>
-<hr>
 
-<div class="row">
+<div class="row py-5 px-2">
+  <h2>Template: Dinámicos</h2>
+  <hr>
   <div class="col">
     <form autocomplete="off" #myForm="ngForm">
 
@@ -11,7 +11,7 @@
         <div class="col-sm-9">
           <input
             required
-            [ngModel]="initialForm.name"
+            [ngModel]="persona.name"
             name="name"
             type="text"
             class="form-control"
@@ -27,18 +27,18 @@
       <!-- Add Favorito -->
       <div class="mb-3 row">
         <label class="col-sm-2 col-form-label">
-          Agregar
+          Agregar actividad
         </label>
         <div class="col-sm-9">
           <div class="input-group">
             <input
               type="text"
               class="form-control"
-              placeholder="Recipient's username"
-              aria-label="Recipient's username"
-              aria-describedby="button-addon2"
+              placeholder="Actividades favoritas"
+              name="newFav"
+              [(ngModel)]="newFav"
               >
-              <button class="btn btn-outline-secondary" type="button">Agregar</button>
+              <button class="btn btn-outline-success" (click)="add()" type="button">Agregar</button>
           </div>
         </div>
       </div>
@@ -46,22 +46,18 @@
       <!-- Juegos Favoritos -->
 
       <div class="mb-3 row">
-        <label class="col-sm-2 col-form-label">Favoritos</label>
+        <label class="col-sm-2 col-form-label">Favoritos:</label>
         <div class="col-sm-9">
-          <input
-            readonly
-            type="text"
-            class="form-control-plaintext mb-2"
-            aria-label="Disabled input example"
-            disabled
-          >
-          <input
-            readonly
-            type="text"
-            class="form-control-plaintext mb-2"
-            aria-label="Disabled input example"
-            disabled
-          >
+          <div class="input-group  mb-2"  *ngFor="let item of persona.favs; let i = index">
+            <input
+              type="text"
+              name="favorito_{{i}}"
+              [(ngModel)]="item.name"
+              class="form-control"
+              required
+            >
+            <button class="btn btn-outline-danger" type="button" (click)="delete(i)">Eliminar</button>
+          </div>
         </div>
       </div>
 
@@ -81,4 +77,8 @@
       </div>
     </form>
   </div>
+</div>
+<div class="row">
+  <p>Persona:</p>
+  <pre> {{ persona | json }}</pre>
 </div>
