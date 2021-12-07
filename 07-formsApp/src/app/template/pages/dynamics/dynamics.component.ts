@@ -19,10 +19,10 @@ interface Favorito {
 })
 export class DynamicsComponent implements OnInit {
 
-  @ViewChild('myForm') miForm!: NgForm| undefined;
+  @ViewChild('myForm') miForm!: NgForm | undefined;
   public newFav: string = '';
 
-  public persona = {
+  public persona : Persona = {
     name: 'Carlos',
     favs: [
       {
@@ -41,9 +41,9 @@ export class DynamicsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public save() {
+  // public save() {
 
-  }
+  // }
 
   public add() {
     const fav : Favorito = {

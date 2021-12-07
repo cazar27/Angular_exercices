@@ -1,1 +1,103 @@
-<p>switchers works!</p>
+
+<div class="row py-5 px-2">
+  <h2>Reactive: Switchers</h2>
+  <hr>
+  <div class="col">
+    <form autocomplete="off">
+      <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Género</label>
+        <div class="col-sm-9">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              value="M"
+              name="gender"
+              id="gender1"
+              required
+            >
+            <label class="form-check-label" for="gender1">
+              Masculino
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              value="F"
+              name="gender"
+              id="gender2"
+              required
+            >
+            <label class="form-check-label" for="gender2">
+              Femenino
+            </label>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Notificaciones</label>
+        <div class="col-sm-9">
+          <div class="form-check form-switch">
+            <input
+              name="notification"
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckChecked"
+              required
+            >
+            <label class="form-check-label" for="flexSwitchCheckChecked">Quiero recibir notificaciones</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-9">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="termsandcondition"
+              value="true"
+              id="flexCheckDefault"
+              required
+            >
+            <label class="form-check-label" for="flexCheckDefault">
+              Terminos y condiciones
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-11">
+          <!-- (click)="save()" -->
+          <button
+            [disabled]="miForm?.invalid"
+            type="submit"
+            class="btn btn-primary float-end"
+            >
+            Guardar
+          </button>
+
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col" *ngIf="miForm">
+    <span>Value</span>
+    <pre>{{ miForm.value | json }}</pre>
+    <span>Valid</span>
+    <pre>{{ miForm.valid }}</pre>
+    <span>Touched</span>
+    <pre>{{ miForm.touched }}</pre>
+    <span>Pristine</span>
+    <pre>{{ miForm.pristine }}</pre>
+  </div>
+</div>
+

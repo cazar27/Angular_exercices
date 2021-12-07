@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-basics',
@@ -7,9 +8,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BasicsComponent implements OnInit {
 
-  constructor() { }
+  public miForm: FormGroup = this.fb.group( {
+    name   : [null, [ Validators.required, Validators.minLength(3) ]],
+    price  : [null,[ Validators.required, Validators.min(0) ]],
+    stock  : [null, [ Validators.required, Validators.min(0) ]]
+  });
+
+  constructor( private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.miForm.setValue({
+      name : '',
+      price  : 1000,
+      stock  : 5
+    })
+  }
+
+  public save() {
+    if(this.miForm.invalid) {
+      this.miForm.markAllAsTouched();
+      return;
+    }
+    console.log(this.miForm.value);
+    console.log('posteo correcto');
+    this.miForm.reset();
+  }
+
+  public validField( field: string ): boolean | null {
+    return this.miForm.controls[field].errors && this.miForm.controls[field].touched;
   }
 
 }

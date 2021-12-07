@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -8,7 +8,7 @@ import { NgForm } from '@angular/forms';
 })
 export class BasicsComponent implements OnInit {
 
-  @ViewChild('myForm') miForm!: NgForm| undefined;
+  @ViewChild('myForm') miForm!: NgForm | undefined;
 
   initialForm = {
     name: '',

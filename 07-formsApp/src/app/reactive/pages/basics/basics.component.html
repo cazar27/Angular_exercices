@@ -1,1 +1,84 @@
-<p>basics works!</p>
+
+<div class="row py-5 px-2">
+  <h2>Reactive: Basicos</h2>
+  <hr>
+  <div class="col">
+    <form autocomplete="off" [formGroup]="miForm" (ngSubmit)="save()">
+
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Producto</label>
+        <div class="col-sm-9">
+          <input
+            required
+            formControlName="name"
+            name="name"
+            type="text"
+            class="form-control"
+            minlength="3"
+            placeholder="Nombre del producto"
+          >
+          <span class="form-text text-danger" *ngIf="validField('name')">
+            El nombre del producto debe tener al menos 3 letras
+          </span>
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Precio</label>
+        <div class="col-sm-9">
+          <input
+            required
+            min="0"
+            formControlName="price"
+            name="price"
+            type="number"
+            class="form-control"
+            placeholder="Precio del producto"
+          >
+          <span class="form-text text-danger" *ngIf="validField('price')">
+            El precio debe ser mayor a 0
+          </span>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Existencias</label>
+        <div class="col-sm-9">
+          <input
+            required
+            min="0"
+            formControlName="stock"
+            name="stock"
+            type="number"
+            class="form-control"
+            placeholder="Existencias del producto"
+          >
+          <span class="form-text text-danger" *ngIf="validField('stock')">
+            La existencia debe ser mayor a 0
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-11">
+          <button
+            type="submit"
+            class="btn btn-primary float-end"
+          >
+            Guardar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col" *ngIf="miForm">
+    <span>Value</span>
+    <pre>{{ miForm.value | json }}</pre>
+    <span>Valid</span>
+    <pre>{{ miForm.valid }}</pre>
+    <span>Touched</span>
+    <pre>{{ miForm.touched }}</pre>
+    <span>Pristine</span>
+    <pre>{{ miForm.pristine }}</pre>
+  </div>
+</div>

@@ -1,1 +1,84 @@
-<p>dynamics works!</p>
+
+<div class="row py-5 px-2">
+  <h2>Reactive: Dinámicos</h2>
+  <hr>
+  <div class="col">
+    <form autocomplete="off">
+
+      <!-- Nombre -->
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Cliente</label>
+        <div class="col-sm-9">
+          <input
+            required
+            ([ngModel])="persona.name"
+            name="name"
+            type="text"
+            class="form-control"
+            minlength="3"
+            placeholder="Nombre del cliente"
+          >
+          <span class="form-text text-danger" *ngIf="validName()">
+            El nombre del cliente debe tener al menos 3 letras
+          </span>
+        </div>
+      </div>
+
+      <!-- Add Favorito -->
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">
+          Agregar actividad
+        </label>
+        <div class="col-sm-9">
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Actividades favoritas"
+              name="newFav"
+              ([ngModel])="newFav"
+              >
+              <button class="btn btn-outline-success" (click)="add()" type="button">Agregar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Juegos Favoritos -->
+
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Favoritos:</label>
+        <div class="col-sm-9">
+          <div class="input-group  mb-2"  *ngFor="let item of persona.favs; let i = index">
+            <input
+              type="text"
+              name="favorito_{{i}}"
+              ([ngModel])="item.name"
+              class="form-control"
+              required
+            >
+            <button class="btn btn-outline-danger" type="button" (click)="delete(i)">Eliminar</button>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-11">
+          <button
+            type="submit"
+            (click)="save()"
+            class="btn btn-primary float-end"
+            [disabled]="miForm?.invalid"
+            >
+            Guardar
+          </button>
+
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <p>Persona:</p>
+  <pre> {{ persona | json }}</pre>
+</div>

@@ -3,7 +3,7 @@
   <h2>Template: Basicos</h2>
   <hr>
   <div class="col">
-    <form autocomplete="off" (submit)="save()" #myForm="ngForm">
+    <form  autocomplete="off" (submit)="save()" #myForm="ngForm">
 
       <div class="mb-3 row">
         <label class="col-sm-2 col-form-label">Producto</label>
@@ -54,7 +54,7 @@
             appCustomMin
             [minimo]="0"
           >
-          <span class="form-text text-danger" *ngIf="">
+          <span class="form-text text-danger" *ngIf="false">
             La existencia debe ser mayor a 0
           </span>
         </div>
