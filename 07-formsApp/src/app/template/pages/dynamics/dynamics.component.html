@@ -11,11 +11,11 @@
         <div class="col-sm-9">
           <input
             required
-            [ngModel]="persona.name"
             name="name"
             type="text"
             class="form-control"
             minlength="3"
+            [ngModel]="persona.name"
             placeholder="Nombre del cliente"
           >
           <span class="form-text text-danger" *ngIf="validName()">

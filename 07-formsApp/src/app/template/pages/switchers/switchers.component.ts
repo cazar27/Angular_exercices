@@ -8,18 +8,17 @@ import { NgForm } from '@angular/forms';
 })
 export class SwitchersComponent implements OnInit {
 
-  @ViewChild('myForm') miForm!: NgForm | undefined;
-
-  persona = {
+  @ViewChild('myForm') miForm!: NgForm;
+  public persona = {
     gender: 'F',
-    notification: false,
+    notification: true,
   }
-
-  termsandcondition: boolean = false;
+  public termsandcondition: boolean = true;
 
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

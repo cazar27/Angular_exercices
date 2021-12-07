@@ -1,24 +1,22 @@
 
-<div class="row py-5 px-2">
+<div class="row py-5">
   <h2>Reactive: Dinámicos</h2>
   <hr>
   <div class="col">
-    <form autocomplete="off">
+    <form autocomplete="off" [formGroup]="miForm" (ngSubmit)="save()">
 
       <!-- Nombre -->
       <div class="mb-3 row">
         <label class="col-sm-2 col-form-label">Cliente</label>
         <div class="col-sm-9">
           <input
-            required
-            ([ngModel])="persona.name"
-            name="name"
-            type="text"
             class="form-control"
-            minlength="3"
+            formControlName="name"
             placeholder="Nombre del cliente"
           >
-          <span class="form-text text-danger" *ngIf="validName()">
+          <span
+            class="form-text text-danger"
+            *ngIf="validField('name')">
             El nombre del cliente debe tener al menos 3 letras
           </span>
         </div>
@@ -35,10 +33,14 @@
               type="text"
               class="form-control"
               placeholder="Actividades favoritas"
-              name="newFav"
-              ([ngModel])="newFav"
-              >
-              <button class="btn btn-outline-success" (click)="add()" type="button">Agregar</button>
+              [formControl]="newFav"
+              (keyup.enter)="add()"
+            >
+              <button
+                class="btn btn-outline-success"
+                (click)="add()"
+                type="button"
+              >Agregar</button>
           </div>
         </div>
       </div>
@@ -47,16 +49,19 @@
 
       <div class="mb-3 row">
         <label class="col-sm-2 col-form-label">Favoritos:</label>
-        <div class="col-sm-9">
-          <div class="input-group  mb-2"  *ngFor="let item of persona.favs; let i = index">
+        <div class="col-sm-9" formArrayName="favs">
+          <div class="input-group  mb-2" *ngFor="let item of favorites.controls;let i = index">
             <input
               type="text"
-              name="favorito_{{i}}"
-              ([ngModel])="item.name"
+              [formControlName]="i"
               class="form-control"
               required
             >
-            <button class="btn btn-outline-danger" type="button" (click)="delete(i)">Eliminar</button>
+            <button
+              class="btn btn-outline-danger"
+              type="button"
+              (click)="delete(i)"
+            >Eliminar</button>
           </div>
         </div>
       </div>
@@ -80,5 +85,7 @@
 </div>
 <div class="row">
   <p>Persona:</p>
-  <pre> {{ persona | json }}</pre>
+  <pre> {{ miForm.value | json }}</pre>
+  <p>Valid:</p>
+  <pre> {{ miForm.valid }}</pre>
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-switchers',
@@ -8,7 +8,12 @@ import { NgForm } from '@angular/forms';
 })
 export class SwitchersComponent implements OnInit {
 
-  @ViewChild('myForm') miForm!: NgForm | undefined;
+  miForm: FormGroup = this.fb.group({
+    gender: [ 'M', Validators.required ],
+    notification: [ true, Validators.required ],
+    termsandcondition: [ false, Validators.requiredTrue ]
+  });
+
 
   public persona = {
     gender: 'F',
@@ -17,9 +22,30 @@ export class SwitchersComponent implements OnInit {
 
   termsandcondition: boolean = false;
 
-  constructor() { }
+  constructor( private fb: FormBuilder ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.miForm.reset({
+      ...this.persona,
+      termsandcondition: false
+    });
+
+    this.miForm.valueChanges.subscribe( ({ termsandcondition, ...rest }) => {
+      this.persona = rest;
+    })
+
+  }
+
+  public disable():boolean  {
+    return this.miForm.valid;
+  }
+
+  public save() {
+
+    const formValue = { ...this.miForm.value };
+    delete formValue.termsandcondition;
+
+    this.persona = formValue;
   }
 
 }

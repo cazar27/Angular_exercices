@@ -1,15 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
-
-interface Persona {
-  name: string;
-  favs: Favorito[]
-}
-
-interface Favorito {
-  id: number,
-  name: string
-}
+import { Component, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dynamics',
@@ -18,51 +8,50 @@ interface Favorito {
 })
 export class DynamicsComponent implements OnInit {
 
-  @ViewChild('myForm') miForm!: NgForm | undefined;
-  public newFav: string = '';
+  public miForm: FormGroup = this.fb.group( {
+    name: [ 'Carlos', [ Validators.required, Validators.minLength(3) ] ],
+    favs: this.fb.array([
+      [ 'Metal Gear', Validators.required ],
+      [ 'Death Stranding',Validators.required  ],
+    ], Validators.required )
+  });
 
-  public persona: Persona = {
-    name: 'Carlos',
-    favs: [
-      {
-        id: 1,
-        name: 'padel'
-      },
-      {
-        id: 1,
-        name: 'videojuegos'
-      }
-    ]
+  public newFav: FormControl = this.fb.control('', Validators.required );
+
+  public get favorites() : any {
+    return this.miForm.get('favs') as FormArray;
   }
 
-  constructor() { }
+  constructor (private fb: FormBuilder ) { }
 
   ngOnInit(): void {
   }
 
-  public save() {
-
-  }
-
-  public add() {
-    const fav : Favorito = {
-      id: this.persona.favs.length + 1,
-      name: this.newFav
+  public save():void {
+    if ( this.miForm.invalid ) {
+      this.miForm.markAllAsTouched();
+      return;
     }
 
-    this.persona.favs.push(fav);
+    // imprimir el valor del formulario, sólo si es válido
+    console.log(this.miForm.value);
   }
 
-  public delete(index: number) {
-    this.persona.favs.splice(index,1)
+  public validField( field: string ): boolean | null {
+    return this.miForm.controls[field].errors
+     && this.miForm.controls[field].touched;
   }
 
-  public validName():boolean {
-    if( this.miForm?.controls ) {
-      return this.miForm.controls['name'].invalid
-        && this.miForm.controls['name'].touched;
-    }
-    return false;
+  public add():void {
+    if ( this.newFav.invalid ) { return; }
+
+    // this.favoritosArr.push( new FormControl( this.newFav.value, Validators.required ) );
+    this.favorites.push( this.fb.control(this.newFav.value, Validators.required ) );
+    this.newFav.reset();
+  }
+
+  public delete(index: number):void {
+    this.favorites.removeAt(index);
   }
 
 }

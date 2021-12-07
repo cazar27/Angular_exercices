@@ -14,7 +14,7 @@ export class BasicsComponent implements OnInit {
     stock  : [null, [ Validators.required, Validators.min(0) ]]
   });
 
-  constructor( private fb: FormBuilder) { }
+  constructor( private fb: FormBuilder ) { }
 
   ngOnInit(): void {
     this.miForm.setValue({
@@ -24,18 +24,18 @@ export class BasicsComponent implements OnInit {
     })
   }
 
+
+  public validField( field: string ): boolean | null {
+    return this.miForm.controls[field].errors && this.miForm.controls[field].touched;
+  }
+
   public save() {
     if(this.miForm.invalid) {
       this.miForm.markAllAsTouched();
       return;
     }
-    console.log(this.miForm.value);
-    console.log('posteo correcto');
-    this.miForm.reset();
-  }
 
-  public validField( field: string ): boolean | null {
-    return this.miForm.controls[field].errors && this.miForm.controls[field].touched;
+    this.miForm.reset();
   }
 
 }

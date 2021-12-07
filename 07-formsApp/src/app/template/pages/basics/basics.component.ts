@@ -8,7 +8,7 @@ import { NgForm } from '@angular/forms';
 })
 export class BasicsComponent implements OnInit {
 
-  @ViewChild('myForm') miForm!: NgForm | undefined;
+  @ViewChild('myForm') miForm!: NgForm;
 
   initialForm = {
     name: '',
@@ -22,7 +22,7 @@ export class BasicsComponent implements OnInit {
   }
 
   public validName(): boolean {
-    if( this.miForm ) {
+    if( this.miForm?.controls ) {
       return this.miForm.controls['name'].invalid
         && this.miForm.controls['name'].touched;
     }
@@ -30,7 +30,7 @@ export class BasicsComponent implements OnInit {
   }
 
   public validPrice(): boolean {
-    if( this.miForm ) {
+    if( this.miForm?.controls ) {
       return this.miForm.controls['price'].touched
       && this.miForm.controls['price'].value <= 0;
     }
