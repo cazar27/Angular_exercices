@@ -10,6 +10,12 @@ export class BasicsComponent implements OnInit {
 
   @ViewChild('myForm') miForm!: NgForm| undefined;
 
+  initialForm = {
+    name: '',
+    price: 1,
+    stock: 5
+  }
+
   constructor() { }
 
   ngOnInit(): void {
@@ -32,13 +38,15 @@ export class BasicsComponent implements OnInit {
   }
 
   public save() {
-    if( this.miForm ) {
-      console.log( this.miForm.value );
-    }
-    if( this.miForm?.controls['price'].value <= 0 ) {
-      console.log('Precio no valido');
-      return;
-    }
+    console.log('posteo correcto');
+    console.log(this.miForm?.value);
+    this.miForm?.resetForm(
+      {
+        name: '',
+        price: 0,
+        stock: 0
+      }
+    );
   }
 
 }

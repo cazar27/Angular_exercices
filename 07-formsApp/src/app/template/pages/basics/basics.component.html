@@ -3,15 +3,14 @@
   <h2>Template: Basicos</h2>
   <hr>
   <div class="col">
-    <form (submit)="save()" #myForm="ngForm">
+    <form autocomplete="off" (submit)="save()" #myForm="ngForm">
 
       <div class="mb-3 row">
         <label class="col-sm-2 col-form-label">Producto</label>
         <div class="col-sm-9">
           <input
             required
-            autocomplete="false"
-            ngModel
+            [ngModel]="initialForm.name"
             name="name"
             type="text"
             class="form-control"
@@ -30,7 +29,7 @@
           <input
             required
             min="0"
-            ngModel
+            [ngModel]="initialForm.price"
             name="price"
             type="number"
             class="form-control"
@@ -47,11 +46,13 @@
           <input
             required
             min="0"
-            ngModel
+            [ngModel]="initialForm.stock"
             name="stock"
             type="number"
             class="form-control"
             placeholder="Existencias del producto"
+            appCustomMin
+            [minimo]="0"
           >
           <span class="form-text text-danger" *ngIf="">
             La existencia debe ser mayor a 0
@@ -60,7 +61,11 @@
       </div>
       <div class="row">
         <div class="col-sm-11">
-          <button type="submit" class="btn btn-primary float-end">
+          <button
+            type="submit"
+            class="btn btn-primary float-end"
+            [disabled]="miForm?.invalid"
+          >
             Guardar
           </button>
         </div>
