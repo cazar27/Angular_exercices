@@ -1,18 +1,11 @@
-<h1>Proporción en ventas</h1>
-<hr>
+<div>
+  <div>
+    <div style="display: block">
+      <canvas baseChart
+        [data]="doughnutChartData"
 
-<div class="row">
-    <div class="col">
-
-        <div style="display: block">
-            <canvas baseChart
-              [data]="doughnutChartData"
-              [labels]="doughnutChartLabels"
-              [chartType]="doughnutChartType"
-              [colors]="colors">
-            </canvas>
-        </div>
-
+        [type]="doughnutChartType">
+      </canvas>
     </div>
+  </div>
 </div>
-

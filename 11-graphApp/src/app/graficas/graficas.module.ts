@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ChartsModule } from 'ng2-charts';
+import { NgChartsModule } from 'ng2-charts';
 
 
 import { GraficasRoutingModule } from './graficas-routing.module';
@@ -23,7 +23,7 @@ import { GraficaBarraComponent } from './components/grafica-barra/grafica-barra.
   imports: [
     CommonModule,
     GraficasRoutingModule,
-    ChartsModule
+    NgChartsModule
   ]
 })
 export class GraficasModule { }

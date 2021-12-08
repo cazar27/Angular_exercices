@@ -6,17 +6,26 @@
 
         <div style="display: block">
             <canvas baseChart
-                    [datasets]="barChartData"
-                    [labels]="barChartLabels"
+                    [data]="barChartData"
                     [options]="barChartOptions"
-                    [legend]="barChartLegend"
-                    [chartType]="barChartType">
+                    [plugins]="barChartPlugins"
+                    [type]="barChartType">
             </canvas>
         </div>
 
-        <button (click)="randomize()"
-                class="btn btn-primary float-end">
-            Actualizar
+        <button (click)="randomize(0)"
+                class="btn btn-primary m-1">
+            Actualizar Serie A
+        </button>
+
+        <button (click)="randomize(1)"
+                class="btn btn-primary m-1">
+            Actualizar Serie B
+        </button>
+
+        <button (click)="randomize(2)"
+                class="btn btn-primary m-1">
+            Actualizar Serie C
         </button>
 
     </div>
