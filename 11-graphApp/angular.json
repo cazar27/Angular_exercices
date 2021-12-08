@@ -3,12 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "graphApp": {
+    "graficasApp": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        },
         "@schematics/angular:application": {
           "strict": true
         }
@@ -20,23 +17,39 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/graphApp",
+            "allowedCommonJsDependencies": [
+              "chart.js"
+            ],
+            "outputPath": "dist/graficasApp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -48,42 +61,25 @@
                   "maximumWarning": "2kb",
                   "maximumError": "4kb"
                 }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
+              ]
             }
-          },
-          "defaultConfiguration": "production"
+          }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "graficasApp:build"
+          },
           "configurations": {
             "production": {
-              "browserTarget": "graphApp:build:production"
-            },
-            "development": {
-              "browserTarget": "graphApp:build:development"
+              "browserTarget": "graficasApp:build:production"
             }
-          },
-          "defaultConfiguration": "development"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "graphApp:build"
+            "browserTarget": "graficasApp:build"
           }
         },
         "test": {
@@ -93,19 +89,46 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "graficasApp:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "graficasApp:serve:production"
+            }
           }
         }
       }
     }
   },
-  "defaultProject": "graphApp"
+  "defaultProject": "graficasApp",
+  "cli": {
+    "analytics": "f6707f25-0055-4f4c-a400-741b2b903687"
+  }
 }
