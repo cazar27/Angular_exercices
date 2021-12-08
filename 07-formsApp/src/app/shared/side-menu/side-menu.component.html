@@ -29,4 +29,20 @@
 
   </ul>
 
+  <br>
+  <h2>Reactive</h2>
+  <hr>
+
+  <ul class="list-group">
+
+    <li
+      class="list-group-item"
+      *ngFor="let item of menuAuthItems"
+      [routerLink]="item.path"
+      routerLinkActive="active">
+        {{item.text}}
+    </li>
+
+  </ul>
+
 </div>
