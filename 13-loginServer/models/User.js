@@ -17,3 +17,13 @@ const userSchema = Schema({
 });
 
 module.exports = model('User', userSchema );
+// {
+//     "name": "Test 1",
+//     "email": "test1@gmail.com",
+//     "password":"Test%123"
+// }.
+// {
+//     "name": "Test 1",
+//     "email": "test1@gmail.com",
+//     "password":"1234@Car"
+// }
