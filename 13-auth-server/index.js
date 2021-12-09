@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
+
 //config of env
 //console.log( process.env );
 
@@ -15,7 +16,7 @@ app.use( cors() );
 app.use( express.json() )
 
 //Rutas express
-app.use( '/api/auth', require('./routes/auth'));
+app.use( '/api/auth', require('./routes/auth.routes'));
 
 
 //create listener: port
