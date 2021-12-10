@@ -23,7 +23,7 @@ module.exports = model('User', userSchema );
 //     "password":"Test%123"
 // }.
 // {
-//     "name": "Test 1",
-//     "email": "test1@gmail.com",
+//     "name": "Carlos",
+//     "email": "carlos@gmail.com",
 //     "password":"1234@Car"
 // }
