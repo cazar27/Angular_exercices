@@ -55,14 +55,14 @@ export class RegisterComponent implements OnInit {
     })
   }
 
-  campoNoValido(campo: string) {
+  invalidField(campo: string) {
     return this.myForm.get(campo)?.invalid
       && this.myForm.get(campo)?.touched;
   }
 
-  submitFormulario() {
+  register() {
 
-    const {name, email, password} = this.myForm.value;
+    const { name, email, password } = this.myForm.value;
     console.log(this.myForm.value);
     this.authService.register( name, email, password )
     .subscribe(resp => console.log );

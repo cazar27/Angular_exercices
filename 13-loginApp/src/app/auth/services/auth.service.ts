@@ -31,6 +31,11 @@ export class AuthService {
     return this.http.post<AuthResponse>(url, body).pipe(
       tap( resp => {
         if ( resp.ok ) {
+          this._usuario = {
+            name: resp.name!,
+            uid: resp.uid!,
+            email: resp.email!
+          }
           localStorage.setItem('token', resp.token! );
         }
       }),

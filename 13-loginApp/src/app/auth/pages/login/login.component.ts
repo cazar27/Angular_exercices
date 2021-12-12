@@ -14,7 +14,7 @@ import { ValidatorService } from 'src/app/shared/validator/validator.service';
 export class LoginComponent implements OnInit {
 
 
-  myForm: FormGroup = this.fb.group({
+  public myForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.pattern(this.validatorService.emailPattern)]],
     password: ['', [Validators.required, Validators.pattern(this.validatorService.passwordPattern)]],
   });
@@ -31,9 +31,14 @@ export class LoginComponent implements OnInit {
     const { email, password } = this.myForm.value;
 
     this.authService.login( email, password)
-    .subscribe(resp => console.log );
+    .subscribe( ok => {
+      if(ok) {
+        this.router.navigateByUrl('dashboard');
+      } else {
+        // TODO: hacer mensaje de error
+      }
+    } );
 
-    //this.router.navigateByUrl('dashboard');
   }
 
   ngOnInit(): void {
