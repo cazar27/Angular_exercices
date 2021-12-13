@@ -8,16 +8,16 @@ const router = Router();
 
 //POST New User
 router.post('/new',
-check('name','enter valid name').not().isEmpty(),
-check('email','enter valid email').isEmail().isLength(7),
-check('password','enter valid password').isStrongPassword(),
+check('name','Introduzca un nombre valido').not().isEmpty(),
+check('email','Introduzca un email valido').isEmail().isLength(7),
+check('password','Introduzca una contraseña valida').isStrongPassword(),
 validation,
 createUser);
 
 //GET Login User
 router.post('/',
-check('email','enter valid email').isEmail().isLength(7),
-check('password','enter valid password').isStrongPassword(),
+check('email','Introduzca un email valido').isEmail().isLength(7),
+check('password','Introduzca una contraseña valida').isStrongPassword(),
 validation,
 login);
 

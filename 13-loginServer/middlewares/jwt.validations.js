@@ -11,7 +11,7 @@ const validJWT = (req, res = response, next ) => {
         return res.status(401).json(
             {
                 ok: false,
-                msg: "Token invalido, incorrect token"
+                msg: "Token invalido, token incorrecto"
             }
         )
     }
@@ -25,7 +25,7 @@ const validJWT = (req, res = response, next ) => {
         console.log(error);
         return res.status(401).json({
             ok: false,
-            msg: 'Invalid Token',
+            msg: 'Token invalido',
             errr_msg: error
         });
     }

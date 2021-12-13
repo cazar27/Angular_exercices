@@ -31,7 +31,7 @@ const createUser = async ( req, res = response ) => {
             uid: dbUser.id,
             name,
             token,
-            msg:"Registed user: " + dbUser.name
+            msg:"Registrado usuario: " + dbUser.name
         });
 
     } catch (error) {
@@ -79,7 +79,7 @@ const login = async ( req, res = response ) => {
             uid: dbUser.id,
             name: dbUser.name,
             token,
-            msg:"Login user: " + dbUser.name
+            msg:"Login usuario: " + dbUser.name
         });
 
     } catch (error) {
@@ -102,7 +102,7 @@ const validateToken = async ( req, res = response ) => {
         uid: uid,
         name: name,
         token,
-        msg:"Revalidar token user: "+ name
+        msg:"Revalidar token usuario: "+ name
     });
 }
 

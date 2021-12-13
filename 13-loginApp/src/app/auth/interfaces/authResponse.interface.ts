@@ -5,5 +5,17 @@ export interface AuthResponse {
   email?: string;
   token?: string,
   msg?: string,
-  errors?: string[]
+  errors?: Error
+}
+interface Error {
+ email?: ErrorInfo,
+ password?: ErrorInfo,
+ msg?: string
+}
+
+interface ErrorInfo {
+  value?: string,
+  msg?: string,
+  param?: string,
+  location?: string,
 }

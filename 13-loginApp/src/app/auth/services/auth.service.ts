@@ -2,8 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, of, tap } from 'rxjs';
 
-import { environment } from '../../../environments/environment.prod';
-import { AuthResponse } from '../interfaces/authResponse.interface';
+import { environment } from 'src/environments/environment.prod';
+import { AuthResponse } from 'src/app/auth/interfaces/authResponse.interface';
 import { User } from '../interfaces/user.interface';
 
 @Injectable({
@@ -28,19 +28,20 @@ export class AuthService {
     const url = this._baseUrl + '/auth';
     const body = { email, password };
 
-    return this.http.post<AuthResponse>(url, body).pipe(
-      tap( resp => {
-        if ( resp.ok ) {
-          this._usuario = {
-            name: resp.name!,
-            uid: resp.uid!,
-            email: resp.email!
+    return this.http.post<AuthResponse>(url, body)
+      .pipe(
+        tap( resp => {
+          if ( resp ) {
+            this._usuario = {
+              name: resp.name!,
+              uid: resp.uid!,
+              email: resp.email!
+            }
+            localStorage.setItem('token', resp.token! );
           }
-          localStorage.setItem('token', resp.token! );
-        }
-      }),
-      map( resp => resp.ok ),
-      catchError( err => of(err.error.msg) )
+        }),
+        map( resp => resp ),
+        catchError( err => of(err.error) )
     );
   }
 

@@ -35,8 +35,6 @@ export class ValidatorService {
         return { noIguales: true }
       }
 
-
-
       formGroup.get(campo2)?.setErrors(null);
 
       return null
