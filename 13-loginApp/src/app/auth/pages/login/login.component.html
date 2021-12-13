@@ -10,16 +10,16 @@ autocomplete="off">
   <div class="wrap-input100 mb-2">
     <span class="label-input100">Email</span>
     <input class="input100" formControlName="email" type="email" name="email" placeholder="Ingrese su email">
-    <span class="focus-input100 text-right" *ngIf="loginErr.email.error">{{ loginErr.email.text }}</span>
+    <span class="focus-input100 alert-error text-right" *ngIf="loginErr.email.error">{{ loginErr.email.text }}</span>
   </div>
 
   <div class="wrap-input100 mb-2">
     <span class="label-input100">Password</span>
     <input class="input100" formControlName="password" type="password" name="password" placeholder="Ingrese su contraseña">
-    <span class="focus-input100 text-right" *ngIf="loginErr.password.error">{{ loginErr.password.text }}</span>
+    <span class="focus-input100 alert-error text-right" *ngIf="loginErr.password.error">{{ loginErr.password.text }}</span>
   </div>
 
-  <div class="text-right pt-2 pb-3" *ngIf="loginErr.message.error">
+  <div class="text-right pt-2 pb-3 alert-error" *ngIf="loginErr.message.error">
     {{ loginErr.message.text }}
   </div>
 
