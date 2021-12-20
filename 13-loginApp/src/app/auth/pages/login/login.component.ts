@@ -58,17 +58,13 @@ export class LoginComponent implements OnInit {
 
     this.authService.login( email, password)
     .subscribe( resp => {
-      console.log(resp);
-      console.log(resp.ok);
+
       if ( resp.ok === true ) {
-        console.log("login");
         this.router.navigateByUrl('/dashboard');
       } else {
         let messegeError = '';
         if(resp !== undefined) {
-
           if(resp.errors !== undefined) {
-
             if(resp.errors.email != undefined) {
               messegeError += '<p>' + resp.errors.email.msg + '</p>';
               this.loginErr.email.error = true;
@@ -79,9 +75,7 @@ export class LoginComponent implements OnInit {
               this.loginErr.password.error = true;
               this.loginErr.password.text = '' + resp.errors.password.msg;
             }
-
           } else {
-
             if(resp.msg) {
               messegeError += '<p>' + resp.msg + '</p>';
               this.loginErr.message.error = true;
@@ -100,8 +94,6 @@ export class LoginComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
 }

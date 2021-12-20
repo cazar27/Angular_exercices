@@ -18,7 +18,6 @@ export class AuthService {
 
   }
 
-
   public get usuario() : User {
     return { ...this._usuario };
   }
@@ -35,7 +34,7 @@ export class AuthService {
             this._usuario = {
               name: resp.name!,
               uid: resp.uid!,
-              email: resp.email!
+              email: email
             }
             localStorage.setItem('token', resp.token! );
           }
@@ -47,7 +46,7 @@ export class AuthService {
 
   public register( name: string, email: string, password: string): Observable<AuthResponse> {
 
-    const url = this._baseUrl + '/auth';
+    const url = this._baseUrl + '/auth/new';
     const body = { name, email, password };
 
     return this.http.post<AuthResponse>(url, body)
@@ -57,8 +56,8 @@ export class AuthService {
           localStorage.setItem('token', token! );
         }
       }),
-      map( resp => resp.ok ),
-      catchError( err => of(err.error.msg) )
+      map( resp => resp ),
+      catchError( err => of(err.error) )
     );
   }
 

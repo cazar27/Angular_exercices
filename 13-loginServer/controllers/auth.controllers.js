@@ -30,6 +30,7 @@ const createUser = async ( req, res = response ) => {
             ok: true,
             uid: dbUser.id,
             name,
+            email,
             token,
             msg:"Registrado usuario: " + dbUser.name
         });

@@ -2,8 +2,8 @@
   <div class="container">
     <a class="navbar-brand">Dashboard</a>
     <div class="text-white">
-      <span> {{ usuario.name }} </span>
-      <button class="btn btn-outline-danger ml-5" type="submit">Logout</button>
+      <span class="pr-5"> {{ usuario.name }} </span>
+      <button class="btn btn-outline-danger" (click)="logout()">Logout</button>
     </div>
   </div>
 </nav>
@@ -15,9 +15,7 @@
     Esta pagina solo funciona si estoy autenticado
   </p>
   <h4>User Info</h4>
-  <pre>
-    {{ usuario | json }}
-  </pre>
+  <pre>{{ usuario | json }}</pre>
   <button  class="btn btn-danger" (click)="logout()">
     Logout
   </button>

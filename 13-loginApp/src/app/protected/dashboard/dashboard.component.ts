@@ -12,6 +12,7 @@ import { User } from 'src/app/auth/interfaces/user.interface';
 export class DashboardComponent {
 
   get usuario(): User {
+    console.table(this.authService.usuario);
     return this.authService.usuario;
   }
 

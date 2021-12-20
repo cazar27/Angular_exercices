@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ValidatorService } from 'src/app/shared/validator/validator.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -12,61 +13,67 @@ import { AuthService } from '../../services/auth.service';
 })
 export class RegisterComponent implements OnInit {
 
-  myForm: FormGroup = this.fb.group({
+  public myForm: FormGroup = this.fb.group({
     name: ['', [Validators.required, Validators.pattern(this.validatorService.namePattern)]],
     email: ['', [Validators.required, Validators.pattern(this.validatorService.emailPattern)]],
-    username: ['', [Validators.required, this.validatorService.noStrider]],
-    password: ['', [Validators.required, Validators.minLength(6)]],
+    password: ['', [Validators.required, Validators.minLength(8), Validators.pattern(this.validatorService.passwordPattern)]],
     password2: ['', [Validators.required]],
   }, {
     validators: [this.validatorService.fieldEquals('password', 'password2')]
   });
 
-  get emailErrorMsg(): string {
-
-    const errors = this.myForm.get('email')?.errors;
-    if ( errors?.['required'] ) {
-      return 'Email es obligatorio';
-    } else if ( errors?.['pattern'] ) {
-      return 'No es un email valido';
-    } else if ( errors?.['emailTomado'] ) {
-      return 'El email ya esta en uso';
-    }
-
-    return '';
-  }
-
-  constructor(private fb: FormBuilder,
+  constructor(
+    private fb: FormBuilder,
     private validatorService: ValidatorService,
     private router: Router,
     private authService: AuthService
-    ) { }
+  ) { }
 
   ngOnInit(): void {
 
     this.myForm.reset({
-      name: 'Fernando Herrera',
-      email: 'test1@test.com',
-      username: 'fernando_her85',
-      password: '1234@Fhe',
-      password2: '1234@Fhe'
+      name: '',
+      email: '',
+      password: '',
+      password2: ''
     })
   }
 
-  invalidField(campo: string) {
-    return this.myForm.get(campo)?.invalid
-      && this.myForm.get(campo)?.touched;
-  }
-
   register() {
-
+    // TODO: Validar la contraseña, En el form nunca se si es valida
+    // ni siquiera me lo indica el back y no se de que error se trata
+    // al registrarme no me valida el token correctamente
     const { name, email, password } = this.myForm.value;
-    console.log(this.myForm.value);
-    this.authService.register( name, email, password )
-    .subscribe(resp => console.log );
 
-    this.myForm.markAllAsTouched();
-    //this.router.navigateByUrl('dashboard');
+    if( this.myForm.valid ) {
+      this.authService.register( name, email, password )
+      .subscribe(resp => {
+        if( resp ) {
+          if(resp.ok === true) {
+            this.authService.validarToken();
+            this.router.navigateByUrl('dashboard');
+          } else {
+
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              html:  '<p>Rellene de nuevo los campos con error</p><p>'+ resp.msg +'</p>',
+              footer: '<a routerLink="/auth/login" class="txt2">Loguearse</a>'
+            })
+          }
+        }
+      } );
+
+    } else {
+      console.log("Validar campos");
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        html:  'Rellene de nuevo los campos con error',
+        footer: '<a routerLink="/auth/login" class="txt2">Loguearse</a>'
+      })
+      this.myForm.markAllAsTouched();
+    }
 
   }
 
